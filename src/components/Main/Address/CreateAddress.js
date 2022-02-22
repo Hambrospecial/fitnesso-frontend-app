@@ -10,21 +10,21 @@ import FormHelperText from '@mui/material/FormHelperText';
 
 import '../SignUp/signUp.css';
 
-const CreateAddress = ({userName}) => {
+const CreateAddress = ({userName, close}) => {
 
     const { register, formState: { errors }, handleSubmit } = useForm()
     const[address, setAddress] = useState()
 
     const onSubmit =(data)=>{
         setAddress(data);
-        // fetch("http://localhost:9067/address/addAddress",{
-        //     method:"POST",
-        //     headers:{"Content-Type":"application/json"},
-        //     body:JSON.stringify(address)
-        // }).then(()=>{
-        //     console.log("Address added")
-        // })
-        alert('You have been successfully added your address.')
+        fetch("http://localhost:9067/address/addAddress", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(address)
+        }).then(()=>{
+            console.log("Address added")
+        })
+        alert('Verify Your account through your email.')
     }
 
 
@@ -111,7 +111,7 @@ const CreateAddress = ({userName}) => {
                         </FormControl>
 
                     </Box>
-                    <Button className='bttn' type='submit'>Add Address</Button>
+                    <Button className='bttn' type='submit' onClick={close}>Add Address</Button>
                 </Form>
 
             </div>

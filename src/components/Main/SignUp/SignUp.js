@@ -54,13 +54,15 @@ const Signup = () => {
     //consume API
     const onSubmit =(data)=>{
         setPerson(data);
-        // fetch("http://localhost:9067/person/register",{
-        //     method:"POST",
-        //     headers:{"Content-Type":"application/json"},
-        //     body:JSON.stringify(person)
-        // })
+        fetch("http://localhost:9067/person/register",{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(person)
+        }).then(()=>{
+            console.log("Successful")
+        })
         handleShow();
-        alert('You have been successfully registered.') ;
+        alert('Add your Address to Continue') ;
 
     }
 
@@ -195,7 +197,7 @@ const Signup = () => {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <CreateAddress userName={person.userName}/>
+                    <CreateAddress userName={person.userName} close={handleClose}/>
                 </Modal.Body>
             </Modal>
         </div>
