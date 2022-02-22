@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import "./navbar.css"
 import { MenuItem } from "./MenuItem"
+import {Link} from 'react-router-dom';
 
 
 
@@ -26,9 +27,9 @@ export default function Navbar() {
                     {MenuItem.map((item, index) => {
                         return(
                             <li key={index}>
-                                <a className={item.cName} href = {item.url}>
+                                <Link className={item.cName} to = {item.url}>
                                     {item.title}
-                                </a>
+                                </Link>
                             </li>
                         )
                     })}
