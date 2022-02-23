@@ -17,11 +17,11 @@ export const MenuItem = [
         cName: "nav-links"
     },
 
-    {
-        title: "Log In",
-        url: "#",
-        cName: "nav-link"
-    },
+    // {
+    //     title: "Log In",
+    //     url: "#",
+    //     cName: "nav-link"
+    // },
 
   
 ]

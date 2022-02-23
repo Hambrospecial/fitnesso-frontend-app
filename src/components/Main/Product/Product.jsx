@@ -97,7 +97,7 @@ export default function Product() {
             Premium home workouts <br/>and fitness plan
         </h1>
         <p className="product_paragraph2">
-        I’ve created these premium fitness classes for everyone starting 
+        I've created these premium fitness classes for everyone starting 
         <br/>from beginner to advanced level with an in depth FAQ.
         </p>
         <a style={{display:'flex',alignItems:'center',fontWeight:'lighter'}} href="#" className="view_all2"> <ChevronRightIcon/> VIEW ALL</a>
