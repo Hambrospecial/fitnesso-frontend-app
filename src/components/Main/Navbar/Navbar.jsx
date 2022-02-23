@@ -1,8 +1,14 @@
-import React from 'react'
+import React, {useState} from 'react'
 import "./navbar.css"
 import { MenuItem } from "./MenuItem"
 
+
+
 export default function Navbar() {
+    const token = localStorage.getItem("token");
+    console.log(token, "**")
+
+    const [isLoggedIn, setIsLoggedIn] = useState(JSON.parse(localStorage.getItem("token")));
   return (
     <div className="navbar">
         <div className="wrapper">
@@ -22,6 +28,11 @@ export default function Navbar() {
                             </li>
                         )
                     })}
+                    {
+                        isLoggedIn?  <a href='' className='login'>Account</a> :  <a href='' className='login'>Log In</a>
+                    }
+               
+
                     
                 </ul>
             </div>
