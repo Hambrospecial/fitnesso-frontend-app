@@ -9,7 +9,6 @@ const LoginUser = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [bearer, setBearer] = useState(false);
-    console.log(username);
     
     async function sendLoginRequest(e) {
         e.preventDefault();
@@ -29,11 +28,10 @@ const LoginUser = () => {
                     Authorization: `Bearer ${loginResponse.data.token}`,
                 }
             };
-            console.log("this guy" + loginResponse.data.token);
+            
             window.location.replace(homeurl)
            
         
-            console.log(">>>>>>>>>" + localStorage.getItem("token"))
 
         } catch (e) {
             console.log("Incorrect username or password!");
