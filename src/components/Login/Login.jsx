@@ -1,0 +1,72 @@
+import React, { useState } from 'react';
+import {loginUser} from '../services/userAuth';
+import './Login.css';
+import axios from "axios";
+import { Link } from 'react-router-dom'
+
+const LoginUser = () => {
+
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [bearer, setBearer] = useState(false);
+    console.log(username);
+    
+    async function sendLoginRequest(e) {
+        e.preventDefault();
+        const reqBody = {
+            username: username,
+            password: password,
+        };
+        const url = 'http://localhost:9067/person/login';
+        const homeurl = "http://localhost:3000/";
+
+        try {
+            const loginResponse = await axios.post(url, reqBody);
+            localStorage.setItem("token", loginResponse.data.token);
+           // localStorage.removeItem("token")
+            const requestHeaders = {
+                headers: {
+                    Authorization: `Bearer ${loginResponse.data.token}`,
+                }
+            };
+            console.log("this guy" + loginResponse.data.token);
+            window.location.replace(homeurl)
+           
+        
+            console.log(">>>>>>>>>" + localStorage.getItem("token"))
+
+        } catch (e) {
+            console.log("Incorrect username or password!");
+        }
+
+
+        
+
+    }
+    
+    const [disabledButton, setDisabledButton] = React.useState("");
+    return(
+        <div className="login-container">
+            <div className='login'>
+                <p className="sign" align="center">LOGIN</p>
+                <form className='form1'>
+                    <input type="text" className='username' align="center" 
+                    placeholder='Username' value={username} onChange={(event) => setUsername(event.target.value)} required/>
+                    
+                    <input type="password" className='password' align="center" 
+                    placeholder='Password' value={password} onChange={(event) => setPassword(event.target.value)} required/>
+                    
+                    <button type='submit' className='submit' disabled={disabledButton} onClick={sendLoginRequest} href="/">Login</button>
+                    
+                    
+                    <p className="forgot" align="center"><a href="#">Forgot Password?</a> </p><br></br>
+                    <p className="register" align="center">No account? <a href="#">Register here!</a></p><br></br>
+                    <p className="cancel" align="center"><a href="/">Cancel</a> </p><br></br>
+                </form>
+            </div>
+        </div>
+    );
+};
+
+// onSubmit={() => sendLoginRequest(setDisabledButton)
+export default LoginUser;
