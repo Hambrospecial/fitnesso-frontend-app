@@ -1,24 +1,18 @@
 import React from "react";
+import {BrowserRouter as Router, Routes, Route,} from 'react-router-dom';
 import './app.css';
-import Navbar from "./components/Main/Navbar/Navbar"
-import Blog from "./components/Main/Blog/Blog"
-import Product from "./components/Main/Product/Product"
-import Footer from "./components/Main/Footer/Footer"
-import BlogArticle from "./components/Main/BlogArticle/BlogArticle";
-import FixedImage from "./components/Main/FixedImage/FixedImage";
-import Slider from "./components/Main/Slider/Slider";
-
+import HomePage from "../src/HomePage";
+import Login from "../src/components/Login/Login"
 function App() {
   return (
     <div className="app">
       <div className="section">
-        <Navbar/>
-        <Slider/>
-        <Blog/>
-        <Product/>
-        <FixedImage/>
-        <BlogArticle/>
-        <Footer/>
+        <Router>
+          <Routes>
+            <Route exact path="/" element={<HomePage/>}/>
+            <Route exact path="/login" element={ <Login/>} />
+          </Routes>
+         </Router>
       </div>
       
     </div>
