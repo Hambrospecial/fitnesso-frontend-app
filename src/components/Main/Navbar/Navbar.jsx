@@ -11,6 +11,8 @@ export default function Navbar() {
     
     // This should be for logout implementation, to remove token from localStorage
     //localStorage.removeItem("token")
+    //localStorage.removeItem("person_info")
+    console.log(token)
 
     
 

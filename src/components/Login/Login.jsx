@@ -9,6 +9,7 @@ const LoginUser = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [bearer, setBearer] = useState(false);
+
     
     async function sendLoginRequest(e) {
         e.preventDefault();
@@ -22,20 +23,18 @@ const LoginUser = () => {
         try {
             localStorage.setItem("username", reqBody.username)
             const loginResponse = await axios.post(url, reqBody);
-            localStorage.setItem("token", loginResponse.data.token);
-            console.log(localStorage.getItem("username"))
             const requestHeaders = {
                 headers: {
                     Authorization: `Bearer ${loginResponse.data.token}`,
                 }
             };
-            
-            window.location.replace(homeurl)
            
-        
+            window.location.replace(homeurl)
 
         } catch (e) {
-            console.log("Incorrect username or password!");
+            // console.log("Incorrect username or password!");
+
+            console.log(e)
         }
 
 
@@ -43,7 +42,7 @@ const LoginUser = () => {
 
     }
     
-    const [disabledButton, setDisabledButton] = React.useState("");
+    const [disabledButton, setDisabledButton] = React.useState(false);
     return(
         <div className="login-container">
             <div className='login'>

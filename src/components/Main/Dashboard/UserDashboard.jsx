@@ -10,6 +10,8 @@ const UsersDashboard = () => {
     const toggleSidebar = () =>{
         setSideBarResponsive(false)
     }
+    
+
   return (
       <>
     <div className="users__dashboard__container">

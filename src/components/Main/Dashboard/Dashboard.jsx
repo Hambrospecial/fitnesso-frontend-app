@@ -1,8 +1,63 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import "./UserDashboard.css";
+import axios from "axios";
+
 
 const Dashboard = () => {
+
+  const tt = localStorage.getItem("token")
+
+  const br = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJBdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoidXNlcjp3cml0ZSJ9LHsiYXV0aG9yaXR5IjoidXNlcjpyZWFkIn0seyJhdXRob3JpdHkiOiJhdXRob3I6cmVhZCJ9LHsiYXV0aG9yaXR5IjoiYXV0aG9yOndyaXRlIn0seyJhdXRob3JpdHkiOiJwcm9kdWN0OnJlYWQifSx7ImF1dGhvcml0eSI6InByb2R1Y3Q6d3JpdGUifSx7ImF1dGhvcml0eSI6ImJsb2c6cmVhZCJ9LHsiYXV0aG9yaXR5IjoiYmxvZzp3cml0ZSJ9LHsiYXV0aG9yaXR5IjoidHJhaW5pbmc6d3JpdGUifSx7ImF1dGhvcml0eSI6InRyYWluaW5nOnJlYWQifSx7ImF1dGhvcml0eSI6InVzZXJzOnJlYWQifSx7ImF1dGhvcml0eSI6InVzZXJzOndyaXRlIn0seyJhdXRob3JpdHkiOiJST0xFX0FETUlOIn1dLCJzdWIiOiJCb2RhbSIsImlhdCI6MTY0NjIyODQ4MywiZXhwIjoxNjQ2MjY0NDgzfQ.VifYgkKhvu1L7wVKKsisheHS_Clcjq-tZOklSGEURo8' 
+
+  // fetch('http://localhost:9067/person/profile', {
+  //   withCredentials: true,
+  //   credentials: 'include',
+  //   headers: {
+  //     'Authorization': br,
+  //     'Connection': 'keep-alive',
+  //     'Content-Type': 'application/json',
+  //     'Cache-Control': 'no-cache'
+  
+  // },
+  //   mode: "no-cors",
+  //   method: "GET",
+  // }).then(res => res.json())
+  // .then(data => console.log(data))
+  // .catch(err => console.err(err))
+
+  // console.log(data);
+  // console.error("here!")
+
+  useEffect((e)=>{
+      getUserInfo(e)
+  },[])
+
+
+
+  async function getUserInfo(e) {
+ 
+    const url = 'http://localhost:9067/person/profile';
+
+    try {
+      const personInfoResponse = await axios.get(url, {
+        headers: {Authorization: br},
+        params: {
+          username: `${localStorage.getItem('username')}`
+        }
+      });
+      localStorage.setItem("person_info", personInfoResponse.data);
+
+      console.log(personInfoResponse.data)    
+  } catch (e) {
+      console.log("User does not exist!");
+  }
+  }
+
+  const personInfo = localStorage.getItem("person_info");
+
+
+
   return (
     <div>
       <div className="users__dashboard__main__title">
