@@ -6,16 +6,10 @@ import { MenuItem } from "./MenuItem"
 
 export default function Navbar() {
     const token = localStorage.getItem("token");
-    const username = localStorage.getItem("username");
-
     
     // This should be for logout implementation, to remove token from localStorage
-    //localStorage.removeItem("token")
-    //localStorage.removeItem("person_info")
-    console.log(token)
-
-    
-
+    // localStorage.removeItem("token")
+  
     const [isLoggedIn, setIsLoggedIn] = useState(token);
   return (
     <div className="navbar">
@@ -37,7 +31,7 @@ export default function Navbar() {
                         )
                     })}
                     {
-                        isLoggedIn?  <a href='/userdashboard' className='login1'>{"Hi " + username}</a> :  <a href='login' className='login1'>Log In</a>
+                        isLoggedIn? <a href='/userdashboard' className='login1'>{"Hi " + localStorage.getItem("username")}</a>:  <a href='login' className='login1'>Log In</a>
                         
                     }
                

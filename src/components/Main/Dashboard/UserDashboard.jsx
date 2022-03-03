@@ -3,6 +3,8 @@ import Dashboard from './Dashboard';
 import './UserDashboard.css';
 
 const UsersDashboard = () => {
+  const homeurl = "http://localhost:3000/";
+
     const [sideBarResponsive, setSideBarResponsive] = useState(true)
     const handleResponsiveness =()=>{
         setSideBarResponsive(true)
@@ -11,6 +13,11 @@ const UsersDashboard = () => {
         setSideBarResponsive(false)
     }
     
+    // const logOut = (e) => {
+    //   e.preventDefault();
+    //   localStorage.clear()
+    //       window.location.replace(homeurl)
+    // }
 
   return (
       <>
@@ -88,7 +95,10 @@ const UsersDashboard = () => {
         </div>
         <div className="users__dashboard__sidebar__logout">
           <i className="fa fa-power-off"></i>
-          <a href="#">Log out</a>
+          <a href="#" onClick={() => {
+            localStorage.clear()
+                window.location.replace(homeurl)
+          }}>Log out</a>
         </div>
       </div>
     </div>

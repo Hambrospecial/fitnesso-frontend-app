@@ -23,6 +23,7 @@ const LoginUser = () => {
         try {
             localStorage.setItem("username", reqBody.username)
             const loginResponse = await axios.post(url, reqBody);
+            localStorage.setItem("token", loginResponse.data.token)
             const requestHeaders = {
                 headers: {
                     Authorization: `Bearer ${loginResponse.data.token}`,
