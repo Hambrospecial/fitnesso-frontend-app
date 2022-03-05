@@ -7,6 +7,7 @@ import UserDashboard from "./components/Main/Dashboard/UserDashboard";
 import Dashboard from "./components/Main/Dashboard/Dashboard";
 import Orders from "./components/Main/Dashboard/Orders/Orders";
 import UserFaves from "./components/Main/Dashboard/Favorites/UserFaves";
+import UserInfo from "./components/Main/Dashboard/EditForms/UserInfo";
 function App() {
   return (
     <div className="app">
@@ -17,6 +18,7 @@ function App() {
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/userdashboard" element={<UserDashboard />}>
               <Route index element={<Dashboard />} />
+              <Route path="/userdashboard/edit-user-info" element={<UserInfo/>}/>
               <Route path="/userdashboard/orders" element={<Orders/>}/>
               <Route path="/userdashboard/user-faves" element={<UserFaves/>}/>
             </Route>

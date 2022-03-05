@@ -31,6 +31,7 @@ const Dashboard = () => {
       // console.table(personInfoResponse);
       console.log(personInfoResponse.data);
       setAddress(personInfoResponse.data.address);
+      localStorage.setItem("peopleData", JSON.stringify(personInfoResponse.data));
 
       // localStorage.setItem("state", personInfoResponse.data.address.state);
       // DONT FORGET TO delete "state" from localStorage
@@ -66,7 +67,7 @@ const Dashboard = () => {
             <p>{peopledata.email}</p>
             <p>{peopledata.phoneNumber}</p>
           </div>
-          <a href="#">
+          <a href="/userdashboard/edit-user-info">
             <i className="fa fa-pencil" aria-hidden="true"></i>
           </a>
         </div>
