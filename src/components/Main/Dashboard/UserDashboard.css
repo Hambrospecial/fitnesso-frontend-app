@@ -118,6 +118,10 @@ main {
 .users__dashboard__main__container {
   padding: 20px 35px;
 }
+.db-component-header{
+  font-weight: lighter;
+  font-style: italic;
+}
 .users__dashboard__main__title {
   display: flex;
   align-items: center;
@@ -135,7 +139,7 @@ main {
   margin-bottom: 5px;
 }
 .users__dashboard__main__greeting > p {
-  font-size: 14px;
+  font-size: 24px;
   font-weight: 700;
   color: #a5aaad;
 }

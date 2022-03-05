@@ -3,10 +3,10 @@ import "./Favorites.css";
 import ReactPaginate from "react-paginate";
 
 const UserFaves = () => {
-  const [product, setProduct] = useState([]);
+  const [products, setProducts] = useState([]);
   const [isLoading, setIsLoaing] = useState(false);
   const [offset, setOffset] = useState(0);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [total, setTotal] = useState(0);
   const [pageCount, setPageCount] = useState(0);
   const [pageLimit] = useState(5);
 
@@ -14,8 +14,9 @@ const UserFaves = () => {
       const fetchData = async () => {
           const response = await fetch("https://fakestoreapi.com/products")
           const faveData = await response.json();
+          setTotal(faveData.length);
           setPageCount(Math.ceil(faveData.length/pageLimit));
-          setProduct(faveData.slice(offset, offset+pageLimit))
+          setProducts(faveData.slice(offset, offset+pageLimit))
           setIsLoaing(true);
       }
     fetchData();
@@ -29,11 +30,14 @@ const UserFaves = () => {
   return (
     <div>
       <div className="fave-container">
+        <header className="db-component-header">
+          <h1>My Favourites ({total}) </h1>
+        </header>
         {isLoading ? (
           <div className="faves-container">
-            {product.map((data, key) => {
+            {products.map((data, key) => {
               return (
-                <div className="o">
+                <div className="fave-holder">
                   <div className="fave-details" key={key}>
                     <img src={`${data.image}`} alt="Image loading" />
                     <div className="fave-info">

@@ -27,8 +27,8 @@
 }
 
 .fave-container img {
-  max-width: 154px;
-  max-height: 154px;
+  width: 104px;
+  height: 104px;
   padding: 10px 10px;
 }
 
@@ -37,6 +37,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.fave-info > h5 {
+  text-overflow: ellipsis;
+  /* white-space: nowrap; */
+  overflow: hidden;
 }
 
 .fave-to-cart {

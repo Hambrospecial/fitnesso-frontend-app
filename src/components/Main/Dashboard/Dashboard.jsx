@@ -10,6 +10,7 @@ const Dashboard = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(token);
   const [peopledata, setPeopleData] = useState({});
   const [successful, setSuccessful] = useState(false);
+  const [address, setAddress] = useState({});
 
   useEffect((e) => {
     getUserInfo(e);
@@ -27,10 +28,11 @@ const Dashboard = () => {
       setPeopleData(personInfoResponse.data);
       setSuccessful(false);
       // setPeopleData(personInfoResponse.data)
-      console.table(personInfoResponse);
+      // console.table(personInfoResponse);
       console.log(personInfoResponse.data);
+      setAddress(personInfoResponse.data.address);
 
-      localStorage.setItem("state", personInfoResponse.data.address.state);
+      // localStorage.setItem("state", personInfoResponse.data.address.state);
       // DONT FORGET TO delete "state" from localStorage
       // const details = personInfoResponse.data
     } catch (e) {
@@ -38,14 +40,14 @@ const Dashboard = () => {
     }
   };
 
-  const personInfo = localStorage.getItem("person_info");
+  // const personInfo = localStorage.getItem("person_info");
   return (
     <div id={peopledata.id}>
     <div className="users__dashboard__main__title">
-      <img src="`${peopledata.image}`" alt="" />
+      <img src={`${peopledata.image}`} alt={`${peopledata.image}`} />
       <div className="users__dashboard__main__greeting">
         <h1>{peopledata.username}</h1>
-        <p>Welcome to your account dashboard</p>
+        <p>Welcome to your account dashboard {`${peopledata.firstName} ${peopledata.lastName}`}</p>
       </div>
     </div>
     <div className="users__dashboard__charts">
@@ -60,8 +62,8 @@ const Dashboard = () => {
         <br />
         <div className="users__dashboard__charts__left__info">
           <div>
-            <p>{peopledata.email}</p>
             <p>{`${peopledata.firstName} ${peopledata.lastName}`}</p>
+            <p>{peopledata.email}</p>
             <p>{peopledata.phoneNumber}</p>
           </div>
           <a href="#">
@@ -73,15 +75,15 @@ const Dashboard = () => {
         <div className="users__dashboard__charts__left__title">
           <div>
             <h1>Address & shipping details</h1>
-            <p>{peopledata.address.state}</p>
+            <p>{address.state}</p>
           </div>
           <i className="fa fa-truck" aria-hidden="true"></i>
         </div>
         <br />
         <div className="users__dashboard__charts__left__info">
           <div>
-            <p>{peopledata.address.streetDetail}</p>
-            <p>{peopledata.address.city}</p>
+            <p>{address.streetDetail}</p>
+            <p>{address.city}</p>
           </div>
           <a href="#">
             <i className="fa fa-pencil" aria-hidden="true"></i>

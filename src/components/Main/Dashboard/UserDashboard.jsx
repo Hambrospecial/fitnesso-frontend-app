@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Route, Link, Outlet } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import './UserDashboard.css';
 
@@ -61,28 +62,20 @@ const UsersDashboard = () => {
       <div className="users__dashboard__sidebar__menu">
         <div className="users__dashboard__sidebar__link active_menu_link">
           <i className="fa fa-home"></i>
-          <a href="/">My Dashboard</a>
+          <a href="/userdashboard">My Dashboard</a>
         </div>
         <h2>Account</h2>
         <div className="users__dashboard__sidebar__link">
           <i className="fa fa-user" aria-hidden="true"></i>
-          <a href="#">My Account Info</a>
+          <a href="#">Edit Account Info</a>
         </div>
         <div className="users__dashboard__sidebar__link">
           <i className="fa fa-heart"></i>
-          <a href="#">Favorites</a>
-        </div>
-        <div className="users__dashboard__sidebar__link">
-          <i className="fa fa-envelope"></i>
-          <a href="#">Inbox</a>
-        </div>
-        <div className="users__dashboard__sidebar__link">
-          <i className="fa fa-archive"></i>
-          <a href="#">Pending orders</a>
+          <a href="/userdashboard/user-faves">Favorites</a>
         </div>
         <div className="users__dashboard__sidebar__link">
           <i className="fa fa-handshake"></i>
-          <a href="#">Orders</a>
+          <a href="/userdashboard/orders">Orders</a>
         </div>
         <h2>Others</h2>
         <div className="users__dashboard__sidebar__link">
@@ -103,7 +96,8 @@ const UsersDashboard = () => {
       </div>
     </div>
     <main>
-        <Dashboard/>
+        {/* <Dashboard/> */}
+        <Outlet/>
     </main>
   </div>
   </>
