@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
 import Dashboard from './Dashboard';
-import UserFaves from './Favorites/UserFaves';
-import Orders from './Orders/Orders';
 import './UserDashboard.css';
 
 const UsersDashboard = () => {
@@ -106,8 +104,6 @@ const UsersDashboard = () => {
     </div>
     <main>
         <Dashboard/>
-        <UserFaves/>
-        <Orders/>,
     </main>
   </div>
   </>

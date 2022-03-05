@@ -9,7 +9,6 @@ export default function Navbar() {
     
     // This should be for logout implementation, to remove token from localStorage
     // localStorage.removeItem("token")
-   // localStorage.clear()
   
     const [isLoggedIn, setIsLoggedIn] = useState(token);
   return (
@@ -35,11 +34,10 @@ export default function Navbar() {
                         isLoggedIn? <a href='/userdashboard' className='login1'>{"Hi " + localStorage.getItem("username")}</a>:  <a href='login' className='login1'>Log In</a>
                         
                     }
-                   
+               
 
                     
                 </ul>
-                
             </div>
         </div>
     </div>

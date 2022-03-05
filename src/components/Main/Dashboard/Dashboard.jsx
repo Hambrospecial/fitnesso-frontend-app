@@ -10,7 +10,6 @@ const Dashboard = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(token);
   const [peopledata, setPeopleData] = useState({});
   const [successful, setSuccessful] = useState(false);
-  const [address, setAddress] = useState('');
 
   useEffect((e) => {
     getUserInfo(e);
@@ -28,9 +27,8 @@ const Dashboard = () => {
       setPeopleData(personInfoResponse.data);
       setSuccessful(false);
       // setPeopleData(personInfoResponse.data)
-      // console.table(personInfoResponse);
-       setAddress(personInfoResponse.data.address);
-    
+      console.table(personInfoResponse);
+      console.log(personInfoResponse.data);
 
       localStorage.setItem("state", personInfoResponse.data.address.state);
       // DONT FORGET TO delete "state" from localStorage
@@ -75,15 +73,15 @@ const Dashboard = () => {
         <div className="users__dashboard__charts__left__title">
           <div>
             <h1>Address & shipping details</h1>
-            <p>{address.state}</p>
+            <p>{peopledata.address.state}</p>
           </div>
           <i className="fa fa-truck" aria-hidden="true"></i>
         </div>
         <br />
         <div className="users__dashboard__charts__left__info">
           <div>
-            <p>{address.city}</p>
-            <p>{address.streetDetail}</p>
+            <p>{peopledata.address.streetDetail}</p>
+            <p>{peopledata.address.city}</p>
           </div>
           <a href="#">
             <i className="fa fa-pencil" aria-hidden="true"></i>
