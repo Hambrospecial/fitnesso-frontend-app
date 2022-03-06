@@ -63,9 +63,10 @@ const Dashboard = () => {
         <br />
         <div className="users__dashboard__charts__left__info">
           <div>
-            <p>{`${peopledata.firstName} ${peopledata.lastName}`}</p>
-            <p>{peopledata.email}</p>
-            <p>{peopledata.phoneNumber}</p>
+            <p>{`${peopledata.firstName} ${peopledata.lastName}`}</p><br></br>
+            <p>{peopledata.email}</p><br></br>
+            <p>{peopledata.phoneNumber}</p><br></br>
+            <p>{peopledata.dobText}</p>
           </div>
           <a href="/userdashboard/edit-user-info">
             <i className="fa fa-pencil" aria-hidden="true"></i>
@@ -83,7 +84,7 @@ const Dashboard = () => {
         <br />
         <div className="users__dashboard__charts__left__info">
           <div>
-            <p>{address.streetDetail}</p>
+            <p>{address.streetDetail}</p><br></br>
             <p>{address.city}</p>
           </div>
           <a href="#">
@@ -115,15 +116,14 @@ const Dashboard = () => {
       <div className="users__dashboard__charts__right">
         <div className="users__dashboard__charts__right__title">
           <div>
-            <h1>Account details</h1>
+            <h1>Password</h1>
           </div>
           <i className="fa fa-dollar-sign" aria-hidden="true"></i>
         </div>
         <div className="users__dashboard__charts__right__cards">
           <div className="users__dashboard__charts__right__title">
             <div>
-              <p></p>
-              <p>Wallet Balance</p>
+              <p>Change password? <a href="/userdashboard/edit-user-pass"> Click here</a></p>
             </div>
           </div>
         </div>
