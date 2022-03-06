@@ -27,6 +27,27 @@ body {
   font-size: 14px;
   font-weight: 700;
 }
+
+.db-main-section {
+  display: grid;
+  grid-template-columns: 15% 5fr 2fr;
+}
+
+.users-db-sidebar-container{
+  margin: 10px;
+}
+
+.db-main-main {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.db-main-img > img {
+  margin: 15px;
+  width: 325px;
+  height: 100vh;
+}
 .users__dashboard__font-bold {
   font-weight: 700;
 }
@@ -46,7 +67,8 @@ body {
   color: #3b9668;
 }
 .users__dashboard__container {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
   position:absolute;
   width: 100%;

@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
+import {Redirect, Route, useNavigate} from 'react-router-dom';
+import Dashboard from "../Dashboard";
 
 const UserInfo = () => {
   const userInfo = JSON.parse(localStorage.getItem("peopleData"));
   const token = localStorage.getItem("token");
+  const navigate = useNavigate();
+
+//   console.log("Token: " + token + ". Username: " + username);
 
   console.log(userInfo);
   const [firstName, setFirstName] = useState(userInfo.firstName);
@@ -24,18 +29,16 @@ const UserInfo = () => {
           dateOfBirth: dateOfBirth,
       };
 
-      console.log(editRequestBody);
-      const url = 'http://localhost:9067/person/profile/edit/personinfo';
+      
+      const url = `http://localhost:9067/person/profile/edit/personinfo/`;
 
       try {
-          const editResponse = await axios.put(url, {
+          const editResponse = await axios.put(url, editRequestBody, {
             headers: { Authorization: `Bearer ${token}`},
-            params: {
-              username: `${localStorage.getItem("username")}`,
-            },
-          }, editRequestBody);
-
-          console.log(editResponse);
+          });
+          
+          alert("Details changed successfully!");
+          return navigate("/userdashboard");
       } catch (err) {
           console.log(err);
       }
