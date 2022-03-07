@@ -11,6 +11,11 @@ import UserInfo from "./components/Main/Dashboard/EditForms/UserInfo";
 import UserPassword from "./components/Main/Dashboard/EditForms/UserPassword";
 import ProductDashboard from "./components/Main/ProductCategory/ProductDashboard";
 import AllProduct from "./components/Main/ProductCategory/AllProducts";
+import Shop from './components/ShopPage/ShopPage'
+
+import CartPage from "./components/Cart/CartPage/CartPage";
+
+import SearchProductFilter from "./components/search/SearchProductFilter";
 
 
 function App() {
@@ -34,6 +39,10 @@ function App() {
               <Route path="/product/nutrition" element={<Orders/>}/>
               <Route path="/product/training" element={<UserFaves/>}/>
             </Route>
+            <Route></Route>
+            <Route exact path="/search" element={<SearchProductFilter/>}/>
+            <Route exact path="/cart" element={<CartPage/>}/>
+            <Route exact path="/shop" element={<Shop/>}/>
           </Routes>
         </Router>
       </div>
