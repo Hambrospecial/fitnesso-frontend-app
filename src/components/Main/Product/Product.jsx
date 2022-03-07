@@ -87,7 +87,6 @@ export default function Product() {
             <a style={{display:'flex',alignItems:'center',fontWeight:'lighter'}} href=""> <ChevronRightIcon/> Train now</a>
             </div>
             </div>
-        
             </div>
             </div>
 
@@ -129,8 +128,6 @@ export default function Product() {
            <a style={{display:'flex',alignItems:'center',fontWeight:'lighter'}} href=""> <ChevronRightIcon/> View</a>
            </div>
        </div>
-
-
        <div className="products">
            <div className="product_photo1">
            </div>
@@ -160,7 +157,7 @@ export default function Product() {
            <div className="product_title">
                <div className="product_title_wrapper">
                    <span className="colour_time">7 Days A Week </span>
-                   <span className="colour_free"> #15000</span>
+                   <span className="colour_free">#15000</span>
                </div>
            </div>
            

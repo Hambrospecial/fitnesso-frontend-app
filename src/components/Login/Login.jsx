@@ -24,22 +24,13 @@ const LoginUser = () => {
             localStorage.setItem("username", reqBody.username)
             const loginResponse = await axios.post(url, reqBody);
             localStorage.setItem("token", loginResponse.data.token)
-            const requestHeaders = {
-                headers: {
-                    Authorization: `Bearer ${loginResponse.data.token}`,
-                }
-            };
-           
+          
             window.location.replace(homeurl)
 
         } catch (e) {
             // console.log("Incorrect username or password!");
-
             console.log(e)
         }
-
-
-        
 
     }
     
@@ -56,7 +47,6 @@ const LoginUser = () => {
                     placeholder='Password' value={password} onChange={(event) => setPassword(event.target.value)} required/>
                     
                     <button type='submit' className='submit' disabled={disabledButton} onClick={sendLoginRequest} href="/">Login</button>
-                    
                     
                     <p className="forgot" align="center"><a href="#">Forgot Password?</a> </p><br></br>
                     <p className="register" align="center">No account? <a href="#">Register here!</a></p><br></br>
