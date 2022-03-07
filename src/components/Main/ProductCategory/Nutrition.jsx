@@ -11,7 +11,7 @@ const Nutrition = () => {
     const [pageLimit] = useState(5);
     const [pageNumber, setPageNumber] = useState(1);
 
-    const serviceUrl = "https://localhost:9067/allproducts/"
+    const serviceUrl = "https://localhost:9067/product/allproducts/"
   
     useEffect(() => {
         const fetchData = async () => {

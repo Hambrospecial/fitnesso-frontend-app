@@ -2,7 +2,7 @@
 export const CategoryItem = [
     {
         title: "ALL",
-        url: "#",
+        url: "/product",
         className: "cat-nav-links"
     },
 
