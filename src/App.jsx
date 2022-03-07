@@ -12,16 +12,18 @@ import UserPassword from "./components/Main/Dashboard/EditForms/UserPassword";
 import ProductDashboard from "./components/Main/ProductCategory/ProductDashboard";
 import AllProduct from "./components/Main/ProductCategory/AllProducts";
 import Shop from './components/ShopPage/ShopPage'
-
 import CartPage from "./components/Cart/CartPage/CartPage";
-
 import SearchProductFilter from "./components/search/SearchProductFilter";
+import Contact from "./components/Contact/pages/Contact.jsx"
+import Navbar from "./components/Main/Navbar/Navbar"
+import Footer from "./components/Main/Footer/Footer";
 
 
 function App() {
   return (
-    <div className="app">
-      <div className="section">
+    <div className='app'>
+      <div className='section'>
+        <Navbar />
         <Router>
           <Routes>
             <Route exact path="/" element={<HomePage />} />
@@ -43,11 +45,22 @@ function App() {
             <Route exact path="/search" element={<SearchProductFilter/>}/>
             <Route exact path="/cart" element={<CartPage/>}/>
             <Route exact path="/shop" element={<Shop/>}/>
+            <Route
+              exact
+              path='/contact'
+              element={
+                <div>
+                  <Navbar />
+                  <Contact />
+                  <Footer />
+                </div>
+              }
+            />
           </Routes>
         </Router>
       </div>
     </div>
-  );
+  )
 }
 
 export default App;
