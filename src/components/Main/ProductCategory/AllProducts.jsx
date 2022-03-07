@@ -49,6 +49,7 @@ const AllProduct = () => {
                 return (
                   <div className="fave-holder">
                     <div className="fave-details" key={key}>
+                      
                       <img src={`${data.image}`} alt="Image loading" />
                       <div className="fave-info">
                         <h5>Product Name: {`${data.title}`}</h5>

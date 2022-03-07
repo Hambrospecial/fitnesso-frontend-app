@@ -9,10 +9,13 @@ const Nutrition = () => {
     const [total, setTotal] = useState(0);
     const [pageCount, setPageCount] = useState(0);
     const [pageLimit] = useState(5);
+    const [pageNumber, setPageNumber] = useState(1);
+
+    const serviceUrl = "https://localhost:9067/allproducts/"
   
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch("https:///product/viewproducts/")
+            const response = await fetch(serviceUrl + `${size}/${pageNumber}`)
             const faveData = await response.json();
             setTotal(faveData.length);
             setPageCount(Math.ceil(faveData.length/pageLimit));
@@ -20,11 +23,13 @@ const Nutrition = () => {
             setIsLoaing(true);
         }
       fetchData();
-    }, [offset, pageLimit]);
+    }, [pageNumber, pageLimit]);
   
     const handlePageClick = (e) => {
-      const selectedPage = e.selected;  
-      setOffset((selectedPage)*pageLimit);  
+      const selectedPage = e.selected; 
+      console.log(selectedPage)
+      setPageNumber(selectedPage + 1) 
+      console.log(pageNumber);
     }
   
     return (

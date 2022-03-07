@@ -17,7 +17,7 @@ import SearchProductFilter from "./components/search/SearchProductFilter";
 import Contact from "./components/Contact/pages/Contact.jsx"
 import Navbar from "./components/Main/Navbar/Navbar"
 import Footer from "./components/Main/Footer/Footer";
-
+import Nutrition from "./components/Main/ProductCategory/Nutrition";
 
 function App() {
   return (
@@ -38,7 +38,7 @@ function App() {
             </Route>
             <Route exact path="/product" element={<ProductDashboard />}>
               <Route index element={<AllProduct/>} />
-              <Route path="/product/nutrition" element={<Orders/>}/>
+              <Route path="/product/nutrition" element={<Nutrition/>}/>
               <Route path="/product/training" element={<UserFaves/>}/>
             </Route>
             <Route></Route>
