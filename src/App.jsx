@@ -8,6 +8,7 @@ import Dashboard from "./components/Main/Dashboard/Dashboard";
 import Orders from "./components/Main/Dashboard/Orders/Orders";
 import UserFaves from "./components/Main/Dashboard/Favorites/UserFaves";
 import UserInfo from "./components/Main/Dashboard/EditForms/UserInfo";
+import UserPassword from "./components/Main/Dashboard/EditForms/UserPassword";
 function App() {
   return (
     <div className="app">
@@ -21,6 +22,7 @@ function App() {
               <Route path="/userdashboard/edit-user-info" element={<UserInfo/>}/>
               <Route path="/userdashboard/orders" element={<Orders/>}/>
               <Route path="/userdashboard/user-faves" element={<UserFaves/>}/>
+              <Route path="/userdashboard/edit-user-pass" element={<UserPassword/>}/>
             </Route>
           </Routes>
         </Router>

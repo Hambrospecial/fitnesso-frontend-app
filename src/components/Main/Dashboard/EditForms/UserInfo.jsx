@@ -1,16 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
-import {Redirect, Route, useNavigate} from 'react-router-dom';
-import Dashboard from "../Dashboard";
+import {useNavigate} from 'react-router-dom';
 
 const UserInfo = () => {
   const userInfo = JSON.parse(localStorage.getItem("peopleData"));
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
 
-//   console.log("Token: " + token + ". Username: " + username);
-
-  console.log(userInfo);
   const [firstName, setFirstName] = useState(userInfo.firstName);
   const [lastName, setLastName] = useState(userInfo.lastName);
   const [phoneNumber, setPhoneNumber] = useState(userInfo.phoneNumber);
@@ -33,10 +29,10 @@ const UserInfo = () => {
       const url = `http://localhost:9067/person/profile/edit/personinfo/`;
 
       try {
-          const editResponse = await axios.put(url, editRequestBody, {
+          await axios.put(url, editRequestBody, {
             headers: { Authorization: `Bearer ${token}`},
           });
-          
+
           alert("Details changed successfully!");
           return navigate("/userdashboard");
       } catch (err) {
@@ -100,7 +96,7 @@ const UserInfo = () => {
             type="submit"
             className="submit"
             onClick={sendEditRequest}
-            href="/userdashboard"
+            // href="/userdashboard"
           >
             Edit Info
           </button>
