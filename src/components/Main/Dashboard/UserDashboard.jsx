@@ -26,12 +26,12 @@ const UsersDashboard = () => {
       <div className="users__dashboard__container">
         <nav className="users__dashboard__navbar">
           <div className="users__dashboard__sidebar__img">
-            <a href="/">
+            <Link to="/">
               <img
                 src="https://uploads-ssl.webflow.com/5e80894f63c557e083ed96b4/5e808ce7dc544553a7f1b1e4_Black.svg"
                 alt="logo"
               />
-            </a>
+            </Link>
             <h1 style={{ marginRight: "10px" }}> </h1>
           </div>
           <div className="users__dashboard__nav_icon" onClick={toggleSidebar}>

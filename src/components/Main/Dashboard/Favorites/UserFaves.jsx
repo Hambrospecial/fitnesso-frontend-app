@@ -24,6 +24,7 @@ const UserFaves = () => {
 
   const handlePageClick = (e) => {
     const selectedPage = e.selected;  
+    console.log(selectedPage);
     setOffset((selectedPage)*pageLimit);  
   }
 
