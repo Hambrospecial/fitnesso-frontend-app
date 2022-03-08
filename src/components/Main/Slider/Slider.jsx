@@ -1,3 +1,4 @@
+import React from 'react'
 import {useState, useEffect} from 'react'
 import {AiOutlineArrowLeft, AiOutlineArrowRight} from 'react-icons/ai'
 import "./slider.css"
