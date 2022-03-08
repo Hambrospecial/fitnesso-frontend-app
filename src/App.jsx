@@ -20,7 +20,6 @@ function App() {
         <BlogArticle/>
         <Footer/>
       </div>
-      
     </div>
   );
 }
