@@ -32,7 +32,7 @@ const AllProduct = () => {
       const selectedPage = e.selected; 
 
       console.log(selectedPage)
-      setPageNumber(selectedPage + 1) 
+      setPageNumber(pageCount != selectedPage +1 ? selectedPage + 1 : selectedPage) ;
       console.log(pageNumber);
     }
   
