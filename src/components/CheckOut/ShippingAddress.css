@@ -9,7 +9,7 @@
     height: auto;
     /* padding-top: 20px; */
     padding-bottom: 20px;
-    height: fit-content;
+    height: 24rem;
     overflow: auto;
 
 }
@@ -29,7 +29,7 @@
     font-weight: bold;
 }
 .ShippingAddress-title-content{
-    height: 30px;
+    height: 56px;
     padding: 15px;
 }
 

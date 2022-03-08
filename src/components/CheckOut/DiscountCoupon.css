@@ -10,7 +10,7 @@
     /* padding-top: 20px; */
     padding-bottom: 2px;
     overflow: auto;
-    height: fit-content;
+    height: 110px;
 
 }
 .DiscountCoupon-row{
@@ -30,7 +30,7 @@
     font-weight: bold;
 }
 .DiscountCoupon-title-content{
-    height: 30px;
+    height: 56px;
     padding: 15px;
 }
 

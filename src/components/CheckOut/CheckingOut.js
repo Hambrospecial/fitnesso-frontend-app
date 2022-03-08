@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./CheckingOut.css";
 import NavBar from "../Main/Navbar/Navbar";
 import Footer from "../Main/Footer/Footer";
-import { useForm } from "react-hook-form";
 import {
   Route,
   Routes,
