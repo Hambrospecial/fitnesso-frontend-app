@@ -98,6 +98,7 @@ const UsersDashboard = () => {
                   href="#"
                   onClick={() => {
                     localStorage.clear();
+                    localStorage.removeItem("token")
                     window.location.replace(homeurl);
                   }}
                 >

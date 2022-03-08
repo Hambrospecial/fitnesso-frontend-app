@@ -52,8 +52,9 @@ const AllProduct = () => {
                       
                       <img src={`${data.image}`} alt="Image loading" />
                       <div className="fave-info">
-                        <h5>Product Name: {`${data.title}`}</h5>
+                        <h5>Product Name: {`${data.productName}`}</h5>
                         <p>Category: {`${data.category}`.toUpperCase()}</p>
+                        <p>Description: {`${data.description}`}</p>
                         <p>Product Cost: {`$${data.price}`}</p>
                         {/* <p>Description: {`${data.description}`}</p> */}
                       </div>

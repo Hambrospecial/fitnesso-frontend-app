@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 // import "./Favorites.css";
 import ReactPaginate from "react-paginate";
 
-const Nutrition = () => {
+const Training = () => {
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoaing] = useState(false);
     const [offset, setOffset] = useState(0);
@@ -11,7 +11,7 @@ const Nutrition = () => {
     const [pageLimit] = useState(5);
     const [pageNumber, setPageNumber] = useState(1);
 
-    const serviceUrl = "http://localhost:9067/product/allproducts/10/0"
+    const serviceUrl = "http://localhost:9067/product/allservices/10/0"
 
   
     useEffect(() => {
@@ -90,4 +90,4 @@ const Nutrition = () => {
     </div>
   );
 }
-export default Nutrition;
+export default Training;

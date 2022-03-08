@@ -23,7 +23,9 @@ const LoginUser = () => {
         try {
             localStorage.setItem("username", reqBody.username)
             const loginResponse = await axios.post(url, reqBody);
+            localStorage.removeItem("token")
             localStorage.setItem("token", loginResponse.data.token)
+            console.log(localStorage.getItem(loginResponse.data.token))
           
             window.location.replace(homeurl)
 

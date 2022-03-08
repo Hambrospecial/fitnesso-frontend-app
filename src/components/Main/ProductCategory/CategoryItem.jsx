@@ -14,7 +14,7 @@ export const CategoryItem = [
 
     {
         title: "TRAINING",
-        url: "#",
+        url: "/product/training",
         className: "cat-nav-links"
     },
 

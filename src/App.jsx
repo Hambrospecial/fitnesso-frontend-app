@@ -18,6 +18,7 @@ import Contact from "./components/Contact/pages/Contact.jsx"
 import Navbar from "./components/Main/Navbar/Navbar"
 import Footer from "./components/Main/Footer/Footer";
 import Nutrition from "./components/Main/ProductCategory/Nutrition";
+import Training from "./components/Main/ProductCategory/Training";
 
 function App() {
   return (
@@ -39,7 +40,7 @@ function App() {
             <Route exact path="/product" element={<ProductDashboard />}>
               <Route index element={<AllProduct/>} />
               <Route path="/product/nutrition" element={<Nutrition/>}/>
-              <Route path="/product/training" element={<UserFaves/>}/>
+              <Route path="/product/training" element={<Training/>}/>
             </Route>
             <Route></Route>
             <Route exact path="/search" element={<SearchProductFilter/>}/>
