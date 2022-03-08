@@ -19,6 +19,8 @@ import Navbar from "./components/Main/Navbar/Navbar"
 import Footer from "./components/Main/Footer/Footer";
 import Nutrition from "./components/Main/ProductCategory/Nutrition";
 import Training from "./components/Main/ProductCategory/Training";
+import CheckingOut from "./components/CheckOut/CheckingOut";
+import EmailCheck from "./components/EmailConfirmation/EmailCheck";
 
 function App() {
   return (
@@ -57,6 +59,8 @@ function App() {
                 </div>
               }
             />
+            <Route exact path="/checkout/*" element={<CheckingOut/>} />
+            <Route exact path="/verify-email/*" element={<EmailCheck/>} />
           </Routes>
         </Router>
       </div>
