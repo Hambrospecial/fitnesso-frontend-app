@@ -1,8 +1,16 @@
-import React from 'react'
+import React, {useState} from 'react'
 import "./navbar.css"
 import { MenuItem } from "./MenuItem"
 
+
+
 export default function Navbar() {
+    const token = localStorage.getItem("token");
+    
+    // This should be for logout implementation, to remove token from localStorage
+    // localStorage.removeItem("token")
+  
+    const [isLoggedIn, setIsLoggedIn] = useState(token);
   return (
     <div className="navbar">
         <div className="wrapper">
@@ -22,6 +30,12 @@ export default function Navbar() {
                             </li>
                         )
                     })}
+                    {
+                        isLoggedIn? <a href='/userdashboard' className='login1'>{"Hi " + localStorage.getItem("username")}</a>:  <a href='login' className='login1'>Log In</a>
+                        
+                    }
+               
+
                     
                 </ul>
             </div>
