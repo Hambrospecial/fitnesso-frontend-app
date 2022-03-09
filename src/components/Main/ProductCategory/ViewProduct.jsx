@@ -26,7 +26,7 @@ const ViewProduct = () => {
   return (
     <div>
       {product.quantity == null ? (
-        <div className="app">
+        <div className="item-view-container">
           <div className="details" key={product._id}>
             <div className="big-img">
               <img src={product.image} alt="" />
@@ -48,7 +48,7 @@ const ViewProduct = () => {
           </div>
         </div>
       ) : (
-        <div className="app">
+        <div className="item-view-container">
           <div className="details" key={product._id}>
             <div className="big-img">
               <img src={product.image} alt="" />
