@@ -19,6 +19,7 @@ import Navbar from "./components/Main/Navbar/Navbar"
 import Footer from "./components/Main/Footer/Footer";
 import Nutrition from "./components/Main/ProductCategory/Nutrition";
 import Training from "./components/Main/ProductCategory/Training";
+import ViewProduct from "./components/Main/ProductCategory/ViewProduct";
 
 function App() {
   return (
@@ -29,7 +30,9 @@ function App() {
           <Routes>
             <Route exact path="/" element={<HomePage />} />
             <Route exact path="/login" element={<Login />} />
-            <Route path="/product" element={<ProductDashboard/>}/>
+            <Route path="/product" element={<ProductDashboard/>}>
+              <Route path="/product/item" element={<ViewProduct/>}/>
+            </Route>
             <Route exact path="/userdashboard" element={<UserDashboard />}>
               <Route index element={<Dashboard />} />
               <Route path="/userdashboard/edit-user-info" element={<UserInfo/>}/>
@@ -42,7 +45,6 @@ function App() {
               <Route path="/product/nutrition" element={<Nutrition/>}/>
               <Route path="/product/training" element={<Training/>}/>
             </Route>
-            <Route></Route>
             <Route exact path="/search" element={<SearchProductFilter/>}/>
             <Route exact path="/cart" element={<CartPage/>}/>
             <Route exact path="/shop" element={<Shop/>}/>

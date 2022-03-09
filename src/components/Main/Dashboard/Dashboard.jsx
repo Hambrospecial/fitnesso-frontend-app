@@ -27,15 +27,10 @@ const Dashboard = () => {
       });
       setPeopleData(personInfoResponse.data);
       setSuccessful(false);
-      // setPeopleData(personInfoResponse.data)
-      // console.table(personInfoResponse);
       console.log(personInfoResponse.data);
       setAddress(personInfoResponse.data.address);
       localStorage.setItem("peopleData", JSON.stringify(personInfoResponse.data));
 
-      // localStorage.setItem("state", personInfoResponse.data.address.state);
-      // DONT FORGET TO delete "state" from localStorage
-      // const details = personInfoResponse.data
     } catch (e) {
       console.log("User does not exist!");
     }

@@ -29,7 +29,6 @@ const UserPassword = () => {
           })
 
           alert(`${response.data.message}`);
-          console.log(response.data.message);
           if(response.data.message !== `password successfully changed`) {
             setCurrentPassword("");
             setNewPassword("");
