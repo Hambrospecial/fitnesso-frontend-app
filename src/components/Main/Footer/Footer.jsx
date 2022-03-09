@@ -49,6 +49,7 @@ export default function Footer() {
           <a href=""><p className="footer_link">Premium Plan</p></a>
           <a href=""><p className="footer_link">Free Plan</p></a>
           <a href=""><p className="footer_link">Blog</p></a>
+          {/*<BlogPost/>Blog*/}
           <a href=""><p className="footer_link">Contact Us</p></a>
         </div>
       </div>
