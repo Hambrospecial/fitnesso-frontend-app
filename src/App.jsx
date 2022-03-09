@@ -2,6 +2,12 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./app.css";
 import HomePage from "../src/HomePage";
+import Login from "../src/components/Login/Login"
+import Signup from "./components/SignUp/SignUp";
+import CreateAddress from "./components/Address/CreateAddress";
+import BlogPost from './components/Main/BlogPost/BlogPost.js'
+import FullBlogPost from './components/Main/BlogPost/FullBlogPost'
+import Layout from "./components/Layout/Layout"
 import Login from "../src/components/Login/Login";
 import UserDashboard from "./components/Main/Dashboard/UserDashboard";
 import Dashboard from "./components/Main/Dashboard/Dashboard";
@@ -40,6 +46,11 @@ function App() {
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={ <Signup/>} />
             <Route exact path="/createaddress" element={ <CreateAddress/>} />
+            <Route exact path="/blog" element={ <Layout />} >
+                <Route path="" element={<BlogPost/>} />
+                <Route  path=":id" element={<FullBlogPost/>} />
+            </Route >
+
             <Route path="/product" element={<ProductDashboard/>}/>
             <Route exact path="/userdashboard" element={<UserDashboard />}>
               <Route index element={<Dashboard />} />
