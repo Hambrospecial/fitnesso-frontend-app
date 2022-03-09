@@ -1,5 +1,51 @@
+import axios from "axios";
 import React from "react";
+import { notifyUser } from "../../Contact/utils";
 import "./AddProduct.css";
+import { useState } from 'react'
+
+function Form() {
+    const [state, setState] = useState({
+        productName: '',
+        price: '',
+        description: '',
+        productType: '',
+        quantity: '',
+        stock: '',
+        category: ''
+    })
+
+    const handleInput=(e)=>{
+        const newObj = {...state}
+        newObj[e.target.name] = e.target.value
+        setState(newObj)
+    }
+
+    const url = "https://fitnesso-app-new.herokuapp.com/product/add"
+
+    const handleSubmit=(e)=>{
+        e.preventDefault()
+        const body = {
+            productName: state.productName.trim(),
+            price: state.price.trim(),
+            description: state.description.trim(),
+            productType: state.productType.trim(),
+            quantity: state.quantity.trim(),
+            stock: state.stock.trim(),
+            category: state.category
+        }
+
+        console.log(body)
+        axios.post(url, body)
+        .then((res) => {
+            notifyUser("Product added successfully")
+        }).catch((err) => {
+            console.log(err)
+            console.log("Message not sent")
+        })
+    }
+}
+
 
 const AddProduct = () => {
   return (
@@ -11,48 +57,81 @@ const AddProduct = () => {
 
           <div className="add-product-input-container add-product-ic1">
             <input
-              id="firstname"
+              name="productName"
               className="add-product-input"
               type="text"
-              placeholder="Product Name "
+              placeholder="Product Name"
+              value={state.productName}
+              onChange={handleInput}
             />
           </div>
           <div className="add-product-input-container add-product-ic2">
             <input
-              id="lastname"
+              name="price"
               className="add-product-input"
               type="text"
               placeholder="Product Price"
+              value={state.price}
+              onChange={handleInput}
             />
           </div>
           <div className="add-product-input-container add-product-ic2">
             <input
-              id="email"
+              name="description"
               className="add-product-input"
               type="text"
               placeholder="Product Description "
+              value={state.description}
+              onChange={handleInput}
+            />
+          </div>
+          <div className="add-product-input-container add-product-ic2">
+            <input
+              name="productType"
+              className="add-product-input"
+              type="text"
+              placeholder="Product Type"
+              value={state.productType}
+              onChange={handleInput}
+            />
+          </div>
+          <div className="add-product-input-container add-product-ic2">
+            <input
+              name="quantity"
+              className="add-product-input"
+              type="text"
+              placeholder="Quantity"
+              value={state.quantity}
+              onChange={handleInput}
+            />
+          </div>
+          <div className="add-product-input-container add-product-ic2">
+            <input
+              name="stock"
+              className="add-product-input"
+              type="text"
+              placeholder="Remaining Stock"
+              value={state.stock}
+              onChange={handleInput}
             />
           </div>
           <div className="add-product-input-container add-product-ic2">
             {/* <input id="email" className="add-product-input" type="text" placeholder="Product description " /> */}
-            <select className="select-box" name="" id="">
+            <select className="select-box" name="category" value={state.category} onChange={handleInput}>
               <option className="select-box1" value="">
                 Select Category
               </option>
               <option className="select-box1" value="">
-                BURGER
+                PRODUCT
               </option>
               <option className="select-box1" value="">
-                BURGER
-              </option>
-              <option className="select-box1" value="">
-                BURGER
+                SERVICES
               </option>
             </select>
           </div>
           <div className="add-product-iput-container add-product-ic2">
             <input
-              id="email"
+              name="image"
               className="add-product-iput"
               type="file"
               placeholder=" "
@@ -60,7 +139,7 @@ const AddProduct = () => {
             <div className="add-product-cut cut-short"></div>
           </div>
 
-          <button type="text" className="add-product-submit">
+          <button type="submit" className="add-product-submit" onClick={handleSubmit} >
             SUBMIT
           </button>
         </form>

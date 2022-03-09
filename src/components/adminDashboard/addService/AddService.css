@@ -1,4 +1,4 @@
-.add-product-body {
+.add-service-body {
     align-items: center;
     /* background-color: #000; */
     display: flex;
@@ -6,7 +6,7 @@
     /* height: 100vh; */
   }
   
-  .add-product-form {
+  .add-service-form {
     background-color: #f8f8f8;
     border-radius:5px;
     box-sizing: border-box;
@@ -18,7 +18,7 @@ box-shadow: 2px 0px 4px #e9e6e6;
 margin:auto;
   }
   
-  .add-product-title {
+  .add-service-title {
     font-family: 'Ubuntu', sans-serif;
     font-size: 36px;
     font-weight: 600;
@@ -26,7 +26,7 @@ margin:auto;
     color:#203492;
   }
   
-  .add-product-subtitle {
+  .add-service-subtitle {
     color: #203492;
     font-family: 'Ubuntu', sans-serif;
     font-size: 16px;
@@ -34,21 +34,21 @@ margin:auto;
     margin-top: 0px;
   }
   
-  .add-product-input-container {
+  .add-service-input-container {
     height: 50px;
     position: relative;
     width: 100%;
   }
   
-  .add-product-ic1 {
+  .add-service-ic1 {
     margin-top: 40px;
   }
   
-  .add-product-ic2 {
+  .add-service-ic2 {
     margin-top: 30px;
   }
   
-  .add-product-input {
+  .add-service-input {
     border-radius: 5px;
     border: 0;
     box-sizing: border-box;
@@ -76,7 +76,7 @@ margin:auto;
   }
 
   
-  .add-product-placeholder {
+  .add-service-placeholder {
     color: #1f1f30;
     font-family: 'Ubuntu', sans-serif;
     left: 20px;
@@ -88,20 +88,20 @@ margin:auto;
     top: 20px;
   }
   
-  .add-product-input:focus ~ .add-product-placeholder,
-  .add-product-input:not(:placeholder-shown) ~ .add-product-placeholder {
-    transform: translateY(-30px) translateX(10px) scale(0.add-product-75);
+  .add-service-input:focus ~ .add-service-placeholder,
+  .add-service-input:not(:placeholder-shown) ~ .add-service-placeholder {
+    transform: translateY(-30px) translateX(10px) scale(0.add-service-75);
   }
   
-  .add-product-input:not(:placeholder-shown) ~ .add-product-placeholder {
+  .add-service-input:not(:placeholder-shown) ~ .add-service-placeholder {
     color: #11131d;
   }
   
-  .add-product-input:focus ~ .add-product-placeholder {
+  .add-service-input:focus ~ .add-service-placeholder {
     color: #dc2f55;
   }
   
-  .add-product-submit {
+  .add-service-submit {
     background-color: #203492;
     border-radius: 5px;
     border: 0;
@@ -116,17 +116,16 @@ margin:auto;
     text-align: center;
     width: 100%;
   }
-  .add-product-submit:hover{
+  .add-service-submit:hover{
     background-color: antiquewhite;
     color: #203492;
   }
   
-  .add-product-submit:active {
+  .add-service-submit:active {
     background-color: #06b;
   }
   @media(max-width:769px){
-    .add-product-form {
+    .add-service-form {
         width:90%;
       }
   }
-  
