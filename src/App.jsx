@@ -21,8 +21,10 @@ import Nutrition from "./components/Main/ProductCategory/Nutrition";
 import Training from "./components/Main/ProductCategory/Training";
 import CheckingOut from "./components/CheckOut/CheckingOut";
 import EmailCheck from "./components/EmailConfirmation/EmailCheck";
+import ShopApp from './shopCart/ShopApp'
 
 function App() {
+
   return (
     <div className='app'>
       <div className='section'>
@@ -46,7 +48,7 @@ function App() {
             </Route>
             <Route></Route>
             <Route exact path="/search" element={<SearchProductFilter/>}/>
-            <Route exact path="/cart" element={<CartPage/>}/>
+            <Route exact path="/cart" element={<ShopApp/>}/>
             <Route exact path="/shop" element={<Shop/>}/>
             <Route
               exact

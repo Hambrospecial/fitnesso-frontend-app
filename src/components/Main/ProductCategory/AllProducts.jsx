@@ -11,7 +11,7 @@ const AllProduct = () => {
     const [pageLimit] = useState(5);
     const [pageNumber, setPageNumber] = useState(1);
 
-    const productUrl = "http://localhost:9067/product/viewproducts/"
+    const productUrl = "https://fitnesso-app-new.herokuapp.com/product/viewproducts/"
     console.log(pageNumber);
 
   
@@ -19,7 +19,7 @@ const AllProduct = () => {
         const fetchData = async () => {
             const response = await fetch(productUrl + `${pageNumber}`)
             const faveData = await response.json();
-            console.log(faveData)
+            console.log("Products from the DB : " + faveData)
             setTotal(faveData.totalElements);
             setPageCount(Math.ceil(faveData.totalPages));
             setProducts(faveData.content)

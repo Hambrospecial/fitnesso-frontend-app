@@ -17,7 +17,7 @@ const LoginUser = () => {
             username: username,
             password: password,
         };
-        const url = 'http://localhost:9067/person/login';
+        const url = 'https://fitnesso-app-new.herokuapp.com/person/login';
         const homeurl = "http://localhost:3000/";
 
         try {

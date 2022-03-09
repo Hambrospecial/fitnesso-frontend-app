@@ -11,7 +11,7 @@ const Training = () => {
     const [pageLimit] = useState(5);
     const [pageNumber, setPageNumber] = useState(1);
 
-    const serviceUrl = "http://localhost:9067/product/allservices/10/0"
+    const serviceUrl = "https://fitnesso-app-new.herokuapp.com/product/allservices/5/1"
 
   
     useEffect(() => {

@@ -1,48 +1,34 @@
-import { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useQuery } from "react-query";
-import React from 'react'
 //Components
 import Drawer from "@material-ui/core/Drawer";
-import CartToggle from "../CartToggle/CartToggle";
+import Cart from "./Cart/Cart";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import Grid from "@material-ui/core/Grid";
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import Badge from "@material-ui/core/Badge";
-import Item from "../Item/item";
+import Item from "./item";
 //Styles
-import { Wrapper, StyledButton } from "./CartPage.styles";
-import Navbar from '../../Main/Navbar/Navbar'
-import Footer from '../../Main/Footer/Footer'
+import { Wrapper, StyledButton } from "./App.styles";
 
+async function getProducts() {
+  let result = await fetch(
+    "https://fitnesso-app-new.herokuapp.com/product/viewproducts/"
+  );
+  let j = result.json();
+  console.log(j, "api");
+  return result.json();
+}
 
-
-
-
-const CartPage = () => {
-
-  const [apiPage, setApiPage] = useState(1)
+const ShopApp = () => {
   const [cartOpen, setCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const { data, isLoading, error } = useQuery("products", getProducts);
 
-  async function getProducts() {
-    let result = await fetch(`https://fitnesso-app-new.herokuapp.com/product/viewproducts/${apiPage}`);
-  return result.json();
-}
-  
-useEffect(()=> {
- 
-}, [apiPage])
+  console.log(data);
 
-const List = (pageNo)=> {
-  if(pageNo > 0){
-    let arr = new Array(pageNo).fill(1)
-   let newArr = arr.map((value, index) => index+1)
-   return newArr
-  }
-}
-console.log(apiPage)
-  const getTotalItems = (items) => items.reduce((ack, item) => ack + item.price, 0);
+  const getTotalItems = (items) =>
+    items.reduce((ack, item) => ack + item.amount, 0);
 
   const handleAddToCart = (clickedItem) => {
     setCartItems((prev) => {
@@ -74,11 +60,13 @@ console.log(apiPage)
   if (isLoading) return <LinearProgress />;
   if (error) return <div>Something went wrong...</div>;
   return (
-    <>
-    <Navbar />
-    <Wrapper>
+    <Wrapper style={{ marginTop: "90px" }}>
       <Drawer anchor="right" open={cartOpen} onClose={() => setCartOpen(false)}>
-        <CartToggle cartItems={cartItems} addToCart={handleAddToCart} removeFromCart={handleRemoveFromCart}/>
+        <Cart
+          cartItems={cartItems}
+          addToCart={handleAddToCart}
+          removeFromCart={handleRemoveFromCart}
+        />
       </Drawer>
       <StyledButton onClick={() => setCartOpen(true)}>
         <Badge badgeContent={getTotalItems(cartItems)} color="error">
@@ -86,23 +74,14 @@ console.log(apiPage)
         </Badge>
       </StyledButton>
       <Grid container spacing={3}>
-        {data.content.map((item) => (
+        {data.map((item) => (
           <Grid item key={item.id} xs={12} sm={4}>
             <Item item={item} handleAddToCart={handleAddToCart} />
           </Grid>
         ))}
       </Grid>
-      {/* {List(data.totalPages)}
-       */}
-    <ul>
-    {List(data.totalPages).map((v, i)=><li key ={i} onClick = {()=> {
-      setApiPage(prev => v)
-      }}>{v}</li>)}
-    </ul>
     </Wrapper>
-    <Footer />
-    </>
   );
 };
 
-export default CartPage;
+export default ShopApp;
