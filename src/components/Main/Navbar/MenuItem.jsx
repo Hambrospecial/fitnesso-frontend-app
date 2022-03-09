@@ -6,14 +6,15 @@ export const MenuItem = [
     },
 
     {
-        title: "Product",
-        url: "#",
+        title: "Shop",
+        url: "shop",
         cName: "nav-links"
     },
 
     {
         title: "Contact Us",
-        url: "#",
+
+        url: "http://localhost:3000/contact",
         cName: "nav-links"
     },
 
@@ -23,5 +24,4 @@ export const MenuItem = [
     //     cName: "nav-link"
     // },
 
-  
 ]
