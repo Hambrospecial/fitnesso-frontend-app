@@ -21,6 +21,13 @@ import Nutrition from "./components/Main/ProductCategory/Nutrition";
 import Training from "./components/Main/ProductCategory/Training";
 import CheckingOut from "./components/CheckOut/CheckingOut";
 import EmailCheck from "./components/EmailConfirmation/EmailCheck";
+import AdminDashboard from "./components/adminDashboard/AdminDashboard";
+import OrdersList from "./components/adminDashboard/adminOrders/OrdersList";
+import UsersList from "./components/adminDashboard/viewAllUsers/UsersList";
+import AddProduct from "./components/adminDashboard/addProductForm/AddProduct";
+import ProductsList from "./components/adminDashboard/productRow/ProductsList";
+import Signup from "./components/Signup/Signup";
+import CreateAddress from "./components/CreateAddress/CreateAddress";
 
 function App() {
   return (
@@ -31,6 +38,8 @@ function App() {
           <Routes>
             <Route exact path="/" element={<HomePage />} />
             <Route exact path="/login" element={<Login />} />
+            <Route exact path="/signup" element={ <Signup/>} />
+            <Route exact path="/createaddress" element={ <CreateAddress/>} />
             <Route path="/product" element={<ProductDashboard/>}/>
             <Route exact path="/userdashboard" element={<UserDashboard />}>
               <Route index element={<Dashboard />} />
@@ -61,6 +70,13 @@ function App() {
             />
             <Route exact path="/checkout/*" element={<CheckingOut/>} />
             <Route exact path="/verify-email/*" element={<EmailCheck/>} />
+            <Route exact path="/admindashboard" element={<AdminDashboard />}>
+              <Route index element={<OrdersList/>} />
+              <Route path="/admindashboard/view-users" element={<UsersList/>}/>
+              <Route path="/admindashboard/add-products" element={<AddProduct/>}/>
+              <Route path="/admindashboard/view-products" element={<ProductsList/>}/>
+              <Route path="/admindashboard/edit-admin-pass" element={<UserPassword/>}/>
+            </Route>
           </Routes>
         </Router>
       </div>

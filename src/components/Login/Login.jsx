@@ -51,7 +51,7 @@ const LoginUser = () => {
                     <button type='submit' className='submit' disabled={disabledButton} onClick={sendLoginRequest} href="/">Login</button>
                     
                     <p className="forgot" align="center"><a href="#">Forgot Password?</a> </p><br></br>
-                    <p className="register" align="center">No account? <a href="#">Register here!</a></p><br></br>
+                    <p className="register" align="center">No account? <a href="/signup">Register here!</a></p><br></br>
                     <p className="cancel" align="center"><a href="/">Cancel</a> </p><br></br>
                 </form>
             </div>
