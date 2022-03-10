@@ -7,6 +7,7 @@ import Footer from "./components/Main/Footer/Footer";
 import BlogArticle from "./components/Main/BlogArticle/BlogArticle";
 import FixedImage from "./components/Main/FixedImage/FixedImage";
 import Slider from "./components/Main/Slider/Slider";
+import Youtube from "./components/YoutubePlayer"
 
 
 const HomePage=()=>{
@@ -16,6 +17,7 @@ const HomePage=()=>{
         <Slider />
         <Blog/>
         <Product />
+        <Youtube />
         <FixedImage />
         <BlogArticle />
         <Footer />
