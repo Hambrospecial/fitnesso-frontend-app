@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./app.css";
 import HomePage from "../src/HomePage";
-import Signup from "./components/SignUp/SignUp";
+import Signup from "./components/Signup/Signup";
 import BlogPost from './components/Main/BlogPost/BlogPost.js'
 import FullBlogPost from './components/Main/BlogPost/FullBlogPost'
 import Layout from "./components/Layout/Layout"
