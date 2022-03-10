@@ -1,6 +1,7 @@
 import React from "react";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { useNavigate } from "react-router-dom";
+import { FavoriteButton } from "../../services/FavoriteButton";
 
 
 const ProductModel = ({ backgroundImage,
@@ -25,7 +26,7 @@ const ProductModel = ({ backgroundImage,
       <div className="product_titleContainer">
         <div className="product_titleWrapper">
           
-          <span className="colour-time">{time} </span>
+        <FavoriteButton itemId={id} />
           <span className="colour-free"> {cost}</span>
         </div>
 

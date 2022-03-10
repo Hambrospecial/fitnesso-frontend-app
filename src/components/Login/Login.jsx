@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import {loginUser} from '../services/userAuth';
 import './Login.css';
 import axios from "axios";
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const LoginUser = () => {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [bearer, setBearer] = useState(false);
+    const navigate = useNavigate();
 
     
     async function sendLoginRequest(e) {
@@ -25,13 +26,17 @@ const LoginUser = () => {
             const loginResponse = await axios.post(url, reqBody);
             localStorage.removeItem("token")
             localStorage.setItem("token", loginResponse.data.token)
-            console.log(localStorage.getItem(loginResponse.data.token))
-          
+            console.log((loginResponse.data));
+        
+            alert('Logged in successfully!');
             window.location.replace(homeurl)
 
         } catch (e) {
-            // console.log("Incorrect username or password!");
-            console.log(e)
+            console.log("Incorrect username or password!");
+            // console.log(e);
+            alert("Incorrect username or password!");
+            setPassword(""); setUsername("");
+            return navigate("/login");
         }
 
     }
@@ -58,6 +63,4 @@ const LoginUser = () => {
         </div>
     );
 };
-
-// onSubmit={() => sendLoginRequest(setDisabledButton)
 export default LoginUser;

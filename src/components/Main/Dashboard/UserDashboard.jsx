@@ -99,6 +99,7 @@ const UsersDashboard = () => {
                   onClick={() => {
                     localStorage.clear();
                     localStorage.removeItem("token")
+                    localStorage.removeItem("peopleData")
                     window.location.replace(homeurl);
                   }}
                 >

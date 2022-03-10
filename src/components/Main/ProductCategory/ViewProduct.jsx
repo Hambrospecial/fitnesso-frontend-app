@@ -1,12 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState, useEffect } from "react";
+import { FavoriteButton } from "../../services/FavoriteButton";
 import "./ViewProduct.css";
 
 const ViewProduct = () => {
   const [product, setProduct] = useState({});
   const [productId, setProductId] = useState(0);
-  const [index, setIndex] = useState();
-  console.log(productId);
+  const [index, setIndex] = useState();;
   const url = "http://localhost:9067/product/";
 
   useEffect(() => {
@@ -19,7 +19,6 @@ const ViewProduct = () => {
   const getProductInfo = async (e) => {
     const response = await fetch(`${url}${productId}`);
     const data = await response.json();
-    console.log(data);
     setProduct(data);
   };
 
@@ -28,6 +27,7 @@ const ViewProduct = () => {
       {product.quantity == null ? (
         <div className="item-view-container">
           <div className="details" key={product._id}>
+          <FavoriteButton itemId={product.id} />
             <div className="big-img">
               <img src={product.image} alt="" />
             </div>

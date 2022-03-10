@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 // import "./Favorites.css";
 import ReactPaginate from "react-paginate";
+import { FavoriteButton } from "../../services/FavoriteButton";
 import Paginations from "../../services/Paginations";
 import ProductModel from "../../shop/shopProduct/ProductModel";
 
@@ -53,6 +54,7 @@ const AllProduct = () => {
           <div className="productSection">
             {products.map((item) => (
               <div className="productContainer" key={item.id}>
+  
                 <ProductModel
                   backgroundImage={item.image}
                   time={item.duration_in_days}
