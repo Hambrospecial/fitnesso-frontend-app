@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./app.css";
 import HomePage from "../src/HomePage";
 import Login from "../src/components/Login/Login"
+import Signup from "./components/Signup/Signup";
 import BlogPost from './components/Main/BlogPost/BlogPost.js'
 import FullBlogPost from './components/Main/BlogPost/FullBlogPost'
 import Layout from "./components/Layout/Layout"
@@ -29,7 +30,6 @@ import OrdersList from "./components/adminDashboard/adminOrders/OrdersList";
 import UsersList from "./components/adminDashboard/viewAllUsers/UsersList";
 import AddProduct from "./components/adminDashboard/addProductForm/AddProduct";
 import ProductsList from "./components/adminDashboard/productRow/ProductsList";
-import Signup from "./components/Signup/Signup";
 import CreateAddress from "./components/CreateAddress/CreateAddress";
 
 function App() {
