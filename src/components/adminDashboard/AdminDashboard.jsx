@@ -11,6 +11,7 @@ import { ViewAllUsersData } from './viewAllUsers/ViewAllUsersData';
 import { Outlet } from 'react-router-dom';
 
 const AdminDashboard = () => {
+    
   return (
     <div>
          
@@ -19,7 +20,7 @@ const AdminDashboard = () => {
 
 <section id="menu">
     <div className="admin-dashboard-logo">
-        <img src="https://uploads-ssl.webflow.com/5e80894f63c557e083ed96b4/5e808d31a7eca1775993ae82_Black.svg" alt=""/>
+        <img src="https://uploads-ssl.webflow.com/5e80894f63c557e083ed96b4/5e808d31a7eca1775993ae82_Black.svg" alt="" href="/"/>
     </div>
 
     <div className="admin-dashboard-items"> 

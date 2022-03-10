@@ -12,7 +12,7 @@ const UserFaves = () => {
 
   useEffect(() => {
       const fetchData = async () => {
-          const response = await fetch("https://fakestoreapi.com/products")
+          const response = await fetch("https://fitnesso-app-new.herokuapp.com/products")
           const faveData = await response.json();
           setTotal(faveData.length);
           setPageCount(Math.ceil(faveData.length/pageLimit));

@@ -59,6 +59,24 @@ const AddProduct = () => {
   const [category, setCategory] = useState("");
   const [monthlySubscription, setMonthlySubscription] = useState("");
   const [image, setImage] = useState("");
+  const handleImage = (e) => {
+      console.log(e);
+      try{
+          const formData = new FormData();
+          formData.append("file", e.target.files[0])
+          formData.append("upload_preset", "fitnessoapp");
+          formData.append("cloud_name","fitnesso")
+          console.log(formData);
+          axios.post(
+              "https://api.cloudinary.com/v1_1/fitnesso/image/upload",
+              formData
+          ).then((response) => {
+              // console.log("response from cloud : "+response);
+              setImage(response.data.secure_url)})
+      }catch(e){
+          console.log(e.message);
+      }
+  }
 
   async function sendAddProductRequest(e) {
     e.preventDefault();
@@ -76,45 +94,41 @@ const AddProduct = () => {
 
     console.log(reqBody)
 
-    const url = 'http://localhost:9067/product/add';
+    //const url = 'https://fitnesso-app-new.herokuapp.com/product/add';
+    const url = "http://localhost:9067/product/add"
   
     try {
         // const loginResponse = await axios.post(url, reqBody);
-        const res = await fetch(url, {
-          method: "POST",
-          mode: "cors",
-          headers: {
-            "Authorization": 'Bearer ' + localStorage.getItem('token'),
-            "Content-Type":"application/json",
-          },
-          body: JSON.stringify(reqBody)
-        })
+        // const res = await fetch(url, {
+        //   method: "POST",
+        //   mode: "cors",
+          // headers: {
+          //   "Authorization": 'Bearer ' + localStorage.getItem('token'),
+          //   "Content-Type":"application/json",
+          // },
+        //   body: JSON.stringify(reqBody)
+        // })
+        const token = localStorage.getItem("token");
         
-        console.log(res.data)
-        console.log("Product added successfully")
+        const response = await axios.post(url, reqBody, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        const res = response.data;
+
+        console.log(res)
+        alert("Product added successfully");
+        setProductName(""); setCategory(""); setDescription(""); setImage(""); setMonthlySubscription(""); setPrice(""); setProductType(""); setStock(""); setQuantity("");
       
        // window.location.replace(homeurl)
   
     } catch (e) {
-        console.log("Failed woefully");
+        console.log("Ensure all fields are filled correctly");
        // console.log(e)
     }
   
   }
   const [disabledButton, setDisabledButton] = React.useState(false);
-  // return(
-  //     <div className="login-container">
-  //         <div className='login'>
-  //             <p className="sign" align="center">LOGIN</p>
-  //             <form className='form1'>
-  //                 <input type="text" className='username' align="center" 
-  //                 placeholder='Username' value={username} onChange={(event) => setUsername(event.target.value)} required/>
-                  
-  //                 <input type="password" className='password' align="center" 
-  //                 placeholder='Password' value={password} onChange={(event) => setPassword(event.target.value)} required/>
-                  
-  //                 <button type='submit' className='submit' disabled={disabledButton} onClick={sendLoginRequest} href="/">Login</button>
-     
+ 
   return (
     <div className="admin-dashboard-board">
       <div className="add-product-body">
@@ -183,34 +197,35 @@ const AddProduct = () => {
             />
           </div>
           <div className="add-product-input-container add-product-ic2">
-            {/* <select className="select-box" name="category" >
-              <option className="select-box1" value={productType} onChange={(event) => setProductType(event.target.value)}>
+            <select className="select-box" name="category" value={productType} onChange={(event) => setProductType(event.target.value)}>
+              <option className="select-box1" value="select Product Type" onChange={(event) => setProductType(event.target.value)}>
                 Select Product Type
               </option>
-              <option className="select-box1" value={productType} onChange={(event) => setProductType(event.target.value)}>
+              <option className="select-box1" value="PRODUCT">
                 PRODUCT
               </option>
-              <option className="select-box1" value={productType} onChange={(event) => setProductType(event.target.value)}>
+              <option className="select-box1" value="SERVICE">
                 SERVICES
               </option>
-            </select> */}
-            <input
+            </select>
+            {/* <input
               name="category"
               className="add-product-input"
               type="text"
               placeholder="Product Type"
               value={productType}
               onChange={(event) => setProductType(event.target.value)}
-            />
+            /> */}
           </div>
           <div className="add-product-iput-container add-product-ic2">
           <input
               name="image"
               className="add-product-input"
-              type="text"
+              type="file"
               placeholder="Image Url"
-              value={image}
-              onChange={(event) => setImage(event.target.value)}
+              // value={image}
+              // onChange={(event) => setImage(event.target.value)}
+              onChange={(event) => handleImage(event)}
             />
             <div className="add-product-cut cut-short"></div>
           </div>
