@@ -51,7 +51,7 @@ const UserPassword = () => {
               type="password"
               placeholder="Enter Current Password"
               align="center"
-              className="curr-pas"
+              className="username"
               value={currentPassword}
               onChange={(event) => setCurrentPassword(event.target.value)}
             />
@@ -61,7 +61,7 @@ const UserPassword = () => {
               type="password"
               align="center"
               placeholder="Enter New Password"
-              className="curr-pas"
+              className="username"
               value={newPassword}
               onChange={(event) => setNewPassword(event.target.value)}
             />
@@ -71,7 +71,7 @@ const UserPassword = () => {
               type="password"
               placeholder="Confirm New Password"
               align="center"
-              className="curr-pas"
+              className="username"
               value={confirmPassword}
               onChange={(event) => setConfirmPassword(event.target.value)}
             />
