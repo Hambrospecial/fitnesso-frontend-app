@@ -57,6 +57,8 @@ const AddProduct = () => {
   const [quantity, setQuantity] = useState("");
   const [stock, setStock] = useState("");
   const [category, setCategory] = useState("");
+  const [monthlySubscription, setMonthlySubscription] = useState("");
+  const [image, setImage] = useState("");
 
   async function sendAddProductRequest(e) {
     e.preventDefault();
@@ -67,10 +69,14 @@ const AddProduct = () => {
       productType: productType,
       quantity: quantity,
       stock: stock,
-      category: category
+      category: category,
+      monthlySubscription: monthlySubscription,
+      image: image
     };
 
-    const url = 'http://localhost:9067/person/login';
+    console.log(reqBody)
+
+    const url = 'http://localhost:9067/product/add';
   
     try {
         // const loginResponse = await axios.post(url, reqBody);
@@ -79,7 +85,7 @@ const AddProduct = () => {
           mode: "cors",
           headers: {
             "Authorization": 'Bearer ' + localStorage.getItem('token'),
-            "Content-Type": "applciation/json"
+            "Content-Type":"application/json",
           },
           body: JSON.stringify(reqBody)
         })
@@ -90,8 +96,8 @@ const AddProduct = () => {
        // window.location.replace(homeurl)
   
     } catch (e) {
-        // console.log("Incorrect username or password!");
-        console.log(e)
+        console.log("Failed woefully");
+       // console.log(e)
     }
   
   }
@@ -148,12 +154,12 @@ const AddProduct = () => {
           </div>
           <div className="add-product-input-container add-product-ic2">
             <input
-              name="productType"
+              name="category"
               className="add-product-input"
               type="text"
-              placeholder="Product Type"
-              value={productType}
-              onChange={(event) => setProductName(event.target.value)}
+              placeholder="Product Category"
+              value={category}
+              onChange={(event) => setCategory(event.target.value)}
             />
           </div>
           <div className="add-product-input-container add-product-ic2">
@@ -161,7 +167,7 @@ const AddProduct = () => {
               name="quantity"
               className="add-product-input"
               type="text"
-              placeholder="Quantity"
+              placeholder="Quantity / Trainers"
               value={quantity}
               onChange={(event) => setQuantity(event.target.value)}
             />
@@ -171,31 +177,51 @@ const AddProduct = () => {
               name="stock"
               className="add-product-input"
               type="text"
-              placeholder="Remaining Stock"
+              placeholder="Remaining Stock / Available Trainers"
               value={stock}
               onChange={(event) => setStock(event.target.value)}
             />
           </div>
           <div className="add-product-input-container add-product-ic2">
-            {/* <input id="email" className="add-product-input" type="text" placeholder="Product description " /> */}
-            <select className="select-box" name="category" value={category} onChange={(event) => setCategory(event.target.value)}>
-              <option className="select-box1" value="">
-                Select Category
+            {/* <select className="select-box" name="category" >
+              <option className="select-box1" value={productType} onChange={(event) => setProductType(event.target.value)}>
+                Select Product Type
               </option>
-              <option className="select-box1" value="">
+              <option className="select-box1" value={productType} onChange={(event) => setProductType(event.target.value)}>
                 PRODUCT
               </option>
-              <option className="select-box1" value="">
+              <option className="select-box1" value={productType} onChange={(event) => setProductType(event.target.value)}>
                 SERVICES
               </option>
-            </select>
+            </select> */}
+            <input
+              name="category"
+              className="add-product-input"
+              type="text"
+              placeholder="Product Type"
+              value={productType}
+              onChange={(event) => setProductType(event.target.value)}
+            />
           </div>
           <div className="add-product-iput-container add-product-ic2">
-            <input
+          <input
               name="image"
-              className="add-product-iput"
-              type="file"
-              placeholder=" "
+              className="add-product-input"
+              type="text"
+              placeholder="Image Url"
+              value={image}
+              onChange={(event) => setImage(event.target.value)}
+            />
+            <div className="add-product-cut cut-short"></div>
+          </div>
+          <div className="add-product-iput-container add-product-ic2">
+          <input
+              name="monthlySubscription"
+              className="add-product-input"
+              type="text"
+              placeholder="Monthly Subscription"
+              value={monthlySubscription}
+              onChange={(event) => setMonthlySubscription(event.target.value)}
             />
             <div className="add-product-cut cut-short"></div>
           </div>
