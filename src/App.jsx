@@ -20,6 +20,7 @@ import Footer from "./components/Main/Footer/Footer";
 import Nutrition from "./components/Main/ProductCategory/Nutrition";
 import Training from "./components/Main/ProductCategory/Training";
 import ViewProduct from "./components/Main/ProductCategory/ViewProduct";
+import UserAddress from "./components/Main/Dashboard/EditForms/UserAddress";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
               <Route path="/userdashboard/orders" element={<Orders/>}/>
               <Route path="/userdashboard/user-faves" element={<UserFaves/>}/>
               <Route path="/userdashboard/edit-user-pass" element={<UserPassword/>}/>
+              <Route path="/userdashboard/edit-user-address" element={<UserAddress/>}/>
             </Route>
             <Route exact path="/product" element={<ProductDashboard />}>
               <Route index element={<AllProduct/>} />

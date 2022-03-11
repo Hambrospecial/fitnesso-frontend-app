@@ -81,7 +81,7 @@ const Dashboard = () => {
             <p>{address.streetDetail}</p><br></br>
             <p>{address.city}</p>
           </div>
-          <a href="#">
+          <a href="/userdashboard/edit-user-address">
             <i className="fa fa-pencil" aria-hidden="true"></i>
           </a>
         </div>
