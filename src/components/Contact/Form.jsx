@@ -22,8 +22,13 @@ function Form() {
    setState(newObj)
  }
  //console.log(state, 'state')
+
+//  const url = 'https://fitnesso-app-new.herokuapp.com/contact-controller'
+ const url = 'http://localhost:9067/contact/save'
+
   const url = 'https://fitnesso-app-new.herokuapp.com/contact-controller'
 // const url = 'http://localhost:9067/contact/save'
+
 
  const handleSubmit=(e)=>{
    e.preventDefault()
