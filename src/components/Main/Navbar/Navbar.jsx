@@ -7,11 +7,15 @@ import SearchProductFilter from '../../search/SearchProductFilter';
 
 export default function Navbar() {
     const token = localStorage.getItem("token");
+    const userrole = localStorage.getItem("role")
     
     // This should be for logout implementation, to remove token from localStorage
     // localStorage.removeItem("token")
   
     const [isLoggedIn, setIsLoggedIn] = useState(token);
+    const [role, setRole] = useState(userrole);
+    const adminRoute =  <a href='/admindashboard' className='login1'>{"Hi " + localStorage.getItem("username")}</a>;
+    const userRoute =  <a href='/userdashboard' className='login1'>{"Hi " + localStorage.getItem("username")}</a>;
   return (
     <div className="navbar">
         <div className="wrapper">
@@ -35,7 +39,7 @@ export default function Navbar() {
                         )
                     })}
                     {
-                        isLoggedIn? <a href='/userdashboard' className='login1'>{"Hi " + localStorage.getItem("username")}</a>:  <a href='login' className='login1'>Log In</a>
+                        isLoggedIn? role == "ROLE_ADMIN"? adminRoute : userRoute :  <a href='login' className='login1'>Log In</a>
                         
                     }
                

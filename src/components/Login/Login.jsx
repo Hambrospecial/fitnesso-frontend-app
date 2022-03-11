@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {loginUser} from '../services/userAuth';
-import './Login.css';
+import "./Login.css";
 import axios from "axios";
 import { Link, useNavigate } from 'react-router-dom'
 
@@ -11,24 +11,41 @@ const LoginUser = () => {
     const [bearer, setBearer] = useState(false);
     const navigate = useNavigate();
 
-    
+
     async function sendLoginRequest(e) {
         e.preventDefault();
         const reqBody = {
             username: username,
             password: password,
         };
-        const url = 'http://localhost:9067/person/login';
-        const homeurl = "http://localhost:3000/";
 
+        const url = 'https://fitnesso-app-new.herokuapp.com/person/login';
+        const homeurl = "https://fitnesso-app-new.herokuapp.com/";
+
+        // const url = 'http://localhost:9067/person/login';
+        // const homeurl = "http://localhost:3000/";
+
+
+
+
+        // https://fitnesso-app-new.herokuapp.com/articles/blogposts/
         try {
             localStorage.setItem("username", reqBody.username)
             const loginResponse = await axios.post(url, reqBody);
             localStorage.removeItem("token")
+<<<<<<< HEAD
             localStorage.setItem("token", loginResponse.data.token)
             console.log((loginResponse.data));
         
             alert('Logged in successfully!');
+=======
+
+            localStorage.setItem("token", loginResponse.data.token);
+            localStorage.setItem("role", loginResponse.data.role);
+            console.log(localStorage.getItem(loginResponse.data.token))
+            console.log(localStorage.getItem(loginResponse.data.role))
+          
+>>>>>>> develop
             window.location.replace(homeurl)
 
         } catch (e) {
@@ -56,7 +73,7 @@ const LoginUser = () => {
                     <button type='submit' className='submit' disabled={disabledButton} onClick={sendLoginRequest} href="/">Login</button>
                     
                     <p className="forgot" align="center"><a href="#">Forgot Password?</a> </p><br></br>
-                    <p className="register" align="center">No account? <a href="#">Register here!</a></p><br></br>
+                    <p className="register" align="center">No account? <a href="/signup">Register here!</a></p><br></br>
                     <p className="cancel" align="center"><a href="/">Cancel</a> </p><br></br>
                 </form>
             </div>

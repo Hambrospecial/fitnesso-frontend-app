@@ -5,7 +5,7 @@ import Dashboard from "./Dashboard";
 import "./UserDashboard.css";
 
 const UsersDashboard = () => {
-  const homeurl = "http://localhost:3000/";
+  const homeurl = "https://fitnesso-app-new.herokuapp.com/";
 
   const [sideBarResponsive, setSideBarResponsive] = useState(true);
   const handleResponsiveness = () => {

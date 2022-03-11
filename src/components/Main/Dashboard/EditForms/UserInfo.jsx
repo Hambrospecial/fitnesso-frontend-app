@@ -27,7 +27,7 @@ const UserInfo = () => {
       };
 
       
-      const url = `http://localhost:9067/person/profile/edit/personinfo/`;
+      const url = `https://fitnesso-app-new.herokuapp.com/person/profile/edit/personinfo/`;
 
       try {
           await axios.put(url, editRequestBody, {

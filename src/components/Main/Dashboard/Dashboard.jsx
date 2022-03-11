@@ -17,7 +17,10 @@ const Dashboard = () => {
   }, []);
   const getUserInfo = async (e) => {
     setSuccessful(true);
-    const url = "http://localhost:9067/person/profile";
+
+    const url = "'https://fitnesso-app-new.herokuapp.com/person/profile";
+
+
     try {
       const personInfoResponse = await axios.get(url, {
         headers: { Authorization: `Bearer ${token}` },

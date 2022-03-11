@@ -12,8 +12,9 @@ const Nutrition = () => {
     const [pageLimit] = useState(5);
     const [pageNumber, setPageNumber] = useState(1);
 
-    const serviceUrl = "http://localhost:9067/product/view_products_np"
 
+    // TODO: Edit Url to be dynamic
+    const serviceUrl = "https://fitnesso-app-new.herokuapp.com/product/allproducts/10/0"
   
     useEffect(() => {
       const fetchData = async () => {

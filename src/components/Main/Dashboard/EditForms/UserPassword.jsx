@@ -21,7 +21,7 @@ const UserPassword = () => {
           userName: userName,
       };
 
-      const url = `http://localhost:9067/person/profile/edit/password`;
+      const url = `https://fitnesso-app-new.herokuapp.com/person/profile/edit/password`;
 
       try {
           const response = await axios.put(url, updatePasswordReq, {

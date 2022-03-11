@@ -15,7 +15,23 @@ const AllProduct = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const [total, setTotal] = useState(0);
 
-  const productUrl = "http://localhost:9067/product/view_all_products_np";
+
+    const productUrl = "https://fitnesso-app-new.herokuapp.com/product/viewproducts/"
+    console.log(pageNumber);
+
+  
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch(productUrl + `${pageNumber}`)
+            const faveData = await response.json();
+            console.log("Products from the DB : " + faveData)
+            setTotal(faveData.totalElements);
+            setPageCount(Math.ceil(faveData.totalPages));
+            setProducts(faveData.content)
+            setIsLoaing(true);
+        }
+      fetchData();
+    }, [pageNumber, pageLimit]);
   
   const onPageChanged = (event, page) => {
     event.preventDefault();
