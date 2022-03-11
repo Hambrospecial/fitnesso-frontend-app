@@ -17,7 +17,6 @@ const HomePage=()=>{
         <Slider />
         <Blog/>
         <Product />
-        <Youtube />
         <FixedImage />
         <BlogArticle />
         <Footer />

@@ -1,7 +1,7 @@
 export const actionTypes = {
-    TOGGLE_NAVBAR = "Layout/TOGGLE_NAVBAR",
-    START_VIDEO_PLAYER = "VideoPlayer/start",
-    STOP_VIDEO_PLAYER = "VideoPlayer/stop"
+    TOGGLE_NAVBAR : "Layout/TOGGLE_NAVBAR",
+    START_VIDEO_PLAYER : "VideoPlayer/start",
+    STOP_VIDEO_PLAYER : "VideoPlayer/stop"
 };
 
 export function toggleNavbar() {
