@@ -11,12 +11,8 @@ const Training = () => {
     const [pageLimit] = useState(5);
     const [pageNumber, setPageNumber] = useState(1);
 
-<<<<<<< HEAD
-    const serviceUrl = "https://fitnesso-app-new.herokuapp.com/product/allservices/5/1"
-=======
     // TODO: Edit Url to be dynamic
     const serviceUrl = "https://fitnesso-app-new.herokuapp.com/product/allservices/10/0"
->>>>>>> develop
 
   
     useEffect(() => {

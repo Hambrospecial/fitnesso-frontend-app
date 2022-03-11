@@ -58,7 +58,7 @@ function App() {
               <Route path="/userdashboard/edit-user-pass" element={<UserPassword/>}/>
             </Route>
             <Route exact path="/product" element={<ProductDashboard />}>
-              <Route index element={<AllProduct/>} />
+              <Route index element={<ShopApp/>} />
               <Route path="/product/nutrition" element={<Nutrition/>}/>
               <Route path="/product/training" element={<Training/>}/>
             </Route>

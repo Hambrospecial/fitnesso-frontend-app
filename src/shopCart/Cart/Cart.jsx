@@ -25,6 +25,7 @@ const Cart = ({ cartItems, addToCart, removeFromCart }) => {
   })
 
   const addToCartFunction = async () => {
+    console.log(myMap, "map");
     console.log(localStorage.getItem("token"), "token here");
       const res = await fetch("https://fitnesso-app-new.herokuapp.com/carts/add", {
         method: "POST",
