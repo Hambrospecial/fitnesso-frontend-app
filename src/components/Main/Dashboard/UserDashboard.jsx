@@ -5,7 +5,7 @@ import Dashboard from "./Dashboard";
 import "./UserDashboard.css";
 
 const UsersDashboard = () => {
-  const homeurl = "https://fitnesso-app-new.herokuapp.com/";
+  const homeurl = "http://localhost:3000/";
 
   const [sideBarResponsive, setSideBarResponsive] = useState(true);
   const handleResponsiveness = () => {
@@ -15,11 +15,13 @@ const UsersDashboard = () => {
     setSideBarResponsive(false);
   };
 
-  // const logOut = (e) => {
-  //   e.preventDefault();
-  //   localStorage.clear()
-  //       window.location.replace(homeurl)
-  // }
+  const logOut = (e) => {
+    e.preventDefault();
+    if (confirm("Log out?")) {
+      localStorage.clear()
+      window.location.replace(homeurl)
+    }
+  }
 
   return (
     <>
@@ -65,51 +67,15 @@ const UsersDashboard = () => {
                 aria-hidden="true"
               ></i>
             </div>
-            <section id="menu">
-              <div className="admin-dashboard-items">
-              
-                <li>
-                  <i className="fab fa-uikit"></i>
-                  <a href="/userdashboard">My Dashboard</a>
-                </li>
-                <li>
-                <i className="fa fa-user" aria-hidden="true"></i>
-                <a href="userdashboard/edit-user-info">Edit Account Info</a>
-                </li>
-                <li>
-                <i className="fa fa-heart"></i>
-                <a href="/userdashboard/user-faves">Favorites</a>
-                </li>
-                <li>
-                <i className="fa fa-handshake"></i>
-                <a href="/userdashboard/orders">Orders</a>
-                </li>
-                
-                <li>
-                <i className="fa fa-power-off"></i>
-                <a
-                  href="#"
-                  onClick={() => {
-                    localStorage.clear();
-                    localStorage.removeItem("token")
-                    localStorage.removeItem("peopleData")
-                    window.location.replace(homeurl);
-                  }}
-                >
-                  Log out
-                </a>
-                </li>
-              </div>
-            </section>
-            {/* <div className="users__dashboard__sidebar__menu">
+            <div className="users__dashboard__sidebar__menu">
               <div className="users__dashboard__sidebar__link">
                 <i className="fa fa-home"></i>
                 <a href="/userdashboard">My Dashboard</a>
               </div>
               <h2>Account</h2>
-              <div className="users__dashboard__sidebar__link active_menu_link">
+              <div className="users__dashboard__sidebar__link">
                 <i className="fa fa-user" aria-hidden="true"></i>
-                <a href="#">Edit Account Info</a>
+                <a href="/userdashboard/edit-user-info">Edit Account Info</a>
               </div>
               <div className="users__dashboard__sidebar__link">
                 <i className="fa fa-heart"></i>
@@ -132,21 +98,15 @@ const UsersDashboard = () => {
                 <i className="fa fa-power-off"></i>
                 <a
                   href="#"
-                  onClick={() => {
-                    localStorage.clear();
-                    localStorage.removeItem("token")
-                    localStorage.removeItem("peopleData")
-                    window.location.replace(homeurl);
-                  }}
+                  onClick={logOut}
                 >
                   Log out
                 </a>
               </div>
-            </div> */}
+            </div>
           </div>
           <div className="db-main-main">
             <main>
-              {/* <Dashboard/> */}
               <Outlet />
             </main>
           </div>
