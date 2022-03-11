@@ -8,7 +8,7 @@ const Youtube2 = () => {
         id="player" 
         type="text/html" 
         style={{ width:"100%", height:"100%" }}
-        src="https://www.youtube.com/watch?v=dJlFmxiL11s"
+        src="https://www.youtube.com/embed/dJlFmxiL11s"
         frameborder="0"> 
         </iframe>
         <div className="close d-flex justify-content-center">
