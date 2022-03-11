@@ -10,7 +10,7 @@ const LoginUser = () => {
     const [password, setPassword] = useState("");
     const [bearer, setBearer] = useState(false);
 
-    
+
     async function sendLoginRequest(e) {
         e.preventDefault();
         const reqBody = {
@@ -25,7 +25,7 @@ const LoginUser = () => {
             const loginResponse = await axios.post(url, reqBody);
             localStorage.removeItem("token")
             localStorage.setItem("token", loginResponse.data.token)
-            console.log(localStorage.getItem(loginResponse.data.token))
+            console.log(localStorage.getItem(loginResponse.data.token), "login token here")
           
             window.location.replace(homeurl)
 
@@ -56,7 +56,7 @@ const LoginUser = () => {
                 </form>
             </div>
         </div>
-    );g
+    );
 };
 
 // onSubmit={() => sendLoginRequest(setDisabledButton)

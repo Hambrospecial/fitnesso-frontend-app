@@ -19,8 +19,8 @@ const CartItem = ({ item, addToCart, removeFromCart }) => (
       <Button size = 'small' variant ='contained' onClick={() => addToCart(item)}> + </Button>
    </div>
   </div>
-  <img src={item.image} alt={item.title} />
- </Wrapper>
+  <img src={item.image} alt={item.title} className="cartImg"/>
+</Wrapper> 
 )
 
 export default CartItem

@@ -5,16 +5,15 @@ import Button from '@material-ui/core/Button'
 import { Wrapper } from './Item.style'
 
 const Item = ({ item, handleAddToCart }) => (
- 
  <Wrapper>
-   {console.log(item, 'item')}
    <img src={item.image} alt={item.title} />
    <div>
-     <h3>{item.title}</h3>
-     <p>{item.description}</p>
-     <h3>${item.price}</h3>
+     <h3 className="prod_title">{item.productName}</h3>
+     <h3 className="prod_category">Category: {item.category}</h3>
+     <p className="prod_desc">Description: {item.description} ...</p>
+     <h3 className="prod_price">${item.price}</h3>
+   <Button onClick={()=> handleAddToCart(item)} className="prod_btn">Add to cart</Button>
    </div>
-   <Button onClick={()=> handleAddToCart(item)}>Add to cart</Button>
  </Wrapper>
 )
 
