@@ -12,7 +12,7 @@ function SearchProductFilter() {
       setLoading(true);
       const response = await axios.get("https://fitnesso-app-new.herokuapp.com/product/viewproducts");
       setPosts(response.data);
-      console.log(response.data);
+      // console.log(response.data);
       setLoading(false);
     };
     
