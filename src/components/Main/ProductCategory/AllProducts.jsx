@@ -11,7 +11,7 @@ const AllProduct = () => {
     const [pageLimit] = useState(5);
     const [pageNumber, setPageNumber] = useState(1);
 
-    const productUrl = "http://localhost:9067/product/viewproducts/"
+    const productUrl = "https://fitnesso-app-new.herokuapp.com/product/viewproducts/"
     console.log(pageNumber);
 
   

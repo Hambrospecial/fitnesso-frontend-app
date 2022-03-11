@@ -52,7 +52,7 @@ margin:auto;
     border-radius: 5px;
     border: 0;
     box-sizing: border-box;
-    color: rgb(247, 242, 242);
+    color: rgb(48, 52, 66);
     font-size: 18px;
     height: 100%;
     outline: 0;
@@ -77,7 +77,7 @@ margin:auto;
 
   
   .add-product-placeholder {
-    color: #65657b;
+    color: #1f1f30;
     font-family: 'Ubuntu', sans-serif;
     left: 20px;
     line-height: 14px;
@@ -94,7 +94,7 @@ margin:auto;
   }
   
   .add-product-input:not(:placeholder-shown) ~ .add-product-placeholder {
-    color: #808097;
+    color: #11131d;
   }
   
   .add-product-input:focus ~ .add-product-placeholder {

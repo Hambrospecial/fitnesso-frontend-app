@@ -17,15 +17,24 @@ const LoginUser = () => {
             username: username,
             password: password,
         };
-        const url = 'http://localhost:9067/person/login';
-        const homeurl = "http://localhost:3000/";
 
+        // const url = 'http://localhost:9067/person/login';
+        const url = 'https://fitnesso-app-new.herokuapp.com/person/login';
+
+        // const url = 'https://fitnesso-app-new.herokuapp.com/person/login';
+        // const homeurl = "https://fitnesso-app-new.herokuapp.com/";
+
+
+
+        // https://fitnesso-app-new.herokuapp.com/articles/blogposts/
         try {
             localStorage.setItem("username", reqBody.username)
             const loginResponse = await axios.post(url, reqBody);
             localStorage.removeItem("token")
-            localStorage.setItem("token", loginResponse.data.token)
+            localStorage.setItem("token", loginResponse.data.token);
+            localStorage.setItem("role", loginResponse.data.role);
             console.log(localStorage.getItem(loginResponse.data.token))
+            console.log(localStorage.getItem(loginResponse.data.role))
           
             window.location.replace(homeurl)
 
