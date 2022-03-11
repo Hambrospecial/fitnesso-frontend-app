@@ -3,49 +3,6 @@ import { notifyUser } from "../../Contact/utils";
 import "./AddProduct.css";
 import React, { useState } from 'react';
 
-             
-
-// function Form() {
-//     const [state, setState] = useState({
-//         productName: '',
-//         price: '',
-//         description: '',
-//         productType: '',
-//         quantity: '',
-//         stock: '',
-//         category: ''
-//     })
-
-//     const handleInput=(e)=>{
-//         const newObj = {...state}
-//         newObj[e.target.name] = e.target.value
-//         setState(newObj)
-//     }
-
-//     const url = "https://fitnesso-app-new.herokuapp.com/product/add"
-
-//     const handleSubmit=(e)=>{
-//         e.preventDefault()
-//         const body = {
-//             productName: state.productName.trim(),
-//             price: state.price.trim(),
-//             description: state.description.trim(),
-//             productType: state.productType.trim(),
-//             quantity: state.quantity.trim(),
-//             stock: state.stock.trim(),
-//             category: state.category
-//         }
-
-//         console.log(body)
-//         axios.post(url, body)
-//         .then((res) => {
-//             notifyUser("Product added successfully")
-//         }).catch((err) => {
-//             console.log(err)
-//             console.log("Message not sent")
-//         })
-//     }
-// }
 
 
 const AddProduct = () => {
@@ -94,20 +51,11 @@ const AddProduct = () => {
 
     console.log(reqBody)
 
-    //const url = 'https://fitnesso-app-new.herokuapp.com/product/add';
-    const url = "http://localhost:9067/product/add"
+    const url = 'https://fitnesso-app-new.herokuapp.com/product/add';
+  //  const url = "http://localhost:9067/product/add"
   
     try {
-        // const loginResponse = await axios.post(url, reqBody);
-        // const res = await fetch(url, {
-        //   method: "POST",
-        //   mode: "cors",
-          // headers: {
-          //   "Authorization": 'Bearer ' + localStorage.getItem('token'),
-          //   "Content-Type":"application/json",
-          // },
-        //   body: JSON.stringify(reqBody)
-        // })
+      
         const token = localStorage.getItem("token");
         
         const response = await axios.post(url, reqBody, {

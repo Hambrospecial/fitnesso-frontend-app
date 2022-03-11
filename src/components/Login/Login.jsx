@@ -17,11 +17,11 @@ const LoginUser = () => {
             username: username,
             password: password,
         };
-        // const url = 'https://fitnesso-app-new.herokuapp.com/person/login';
-        // const homeurl = "https://fitnesso-app-new.herokuapp.com/";
+        const url = 'https://fitnesso-app-new.herokuapp.com/person/login';
+        const homeurl = "https://fitnesso-app-new.herokuapp.com/";
 
-        const url = 'http://localhost:9067/person/login';
-        const homeurl = "http://localhost:3000/";
+        // const url = 'http://localhost:9067/person/login';
+        // const homeurl = "http://localhost:3000/";
 
         try {
             localStorage.setItem("username", reqBody.username)
