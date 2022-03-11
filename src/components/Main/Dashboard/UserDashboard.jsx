@@ -65,13 +65,49 @@ const UsersDashboard = () => {
                 aria-hidden="true"
               ></i>
             </div>
-            <div className="users__dashboard__sidebar__menu">
-              <div className="users__dashboard__sidebar__link active_menu_link">
+            <section id="menu">
+              <div className="admin-dashboard-items">
+              
+                <li>
+                  <i className="fab fa-uikit"></i>
+                  <a href="/userdashboard">My Dashboard</a>
+                </li>
+                <li>
+                <i className="fa fa-user" aria-hidden="true"></i>
+                <a href="userdashboard/edit-user-info">Edit Account Info</a>
+                </li>
+                <li>
+                <i className="fa fa-heart"></i>
+                <a href="/userdashboard/user-faves">Favorites</a>
+                </li>
+                <li>
+                <i className="fa fa-handshake"></i>
+                <a href="/userdashboard/orders">Orders</a>
+                </li>
+                
+                <li>
+                <i className="fa fa-power-off"></i>
+                <a
+                  href="#"
+                  onClick={() => {
+                    localStorage.clear();
+                    localStorage.removeItem("token")
+                    localStorage.removeItem("peopleData")
+                    window.location.replace(homeurl);
+                  }}
+                >
+                  Log out
+                </a>
+                </li>
+              </div>
+            </section>
+            {/* <div className="users__dashboard__sidebar__menu">
+              <div className="users__dashboard__sidebar__link">
                 <i className="fa fa-home"></i>
                 <a href="/userdashboard">My Dashboard</a>
               </div>
               <h2>Account</h2>
-              <div className="users__dashboard__sidebar__link">
+              <div className="users__dashboard__sidebar__link active_menu_link">
                 <i className="fa fa-user" aria-hidden="true"></i>
                 <a href="#">Edit Account Info</a>
               </div>
@@ -99,13 +135,14 @@ const UsersDashboard = () => {
                   onClick={() => {
                     localStorage.clear();
                     localStorage.removeItem("token")
+                    localStorage.removeItem("peopleData")
                     window.location.replace(homeurl);
                   }}
                 >
                   Log out
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="db-main-main">
             <main>

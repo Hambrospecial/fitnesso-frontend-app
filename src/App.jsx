@@ -23,6 +23,10 @@ import Navbar from "./components/Main/Navbar/Navbar"
 import Footer from "./components/Main/Footer/Footer";
 import Nutrition from "./components/Main/ProductCategory/Nutrition";
 import Training from "./components/Main/ProductCategory/Training";
+
+import ViewProduct from "./components/Main/ProductCategory/ViewProduct";
+import UserAddress from "./components/Main/Dashboard/EditForms/UserAddress";
+
 import CheckingOut from "./components/CheckOut/CheckingOut";
 import EmailCheck from "./components/EmailConfirmation/EmailCheck";
 import ShopApp from './shopCart/ShopApp'
@@ -32,6 +36,7 @@ import UsersList from "./components/adminDashboard/viewAllUsers/UsersList";
 import AddProduct from "./components/adminDashboard/addProductForm/AddProduct";
 import ProductsList from "./components/adminDashboard/productRow/ProductsList";
 import CreateAddress from "./components/CreateAddress/CreateAddress";
+
 
 function App() {
 
@@ -43,6 +48,10 @@ function App() {
           <Routes>
             <Route exact path="/" element={<HomePage />} />
             <Route exact path="/login" element={<Login />} />
+
+            <Route path="/product" element={<ProductDashboard/>}>
+              <Route path="/product/item" element={<ViewProduct/>}/>
+            </Route>
             <Route exact path="/signup" element={ <Signup/>} />
             <Route exact path="/blog" element={ <Layout />} >
                 <Route path="" element={<BlogPost/>} />
@@ -50,19 +59,20 @@ function App() {
             </Route >
             <Route exact path="/createaddress/:uname" element={ <CreateAddress/>} />
             <Route path="/product" element={<ProductDashboard/>}/>
+
             <Route exact path="/userdashboard" element={<UserDashboard />}>
               <Route index element={<Dashboard />} />
               <Route path="/userdashboard/edit-user-info" element={<UserInfo/>}/>
               <Route path="/userdashboard/orders" element={<Orders/>}/>
               <Route path="/userdashboard/user-faves" element={<UserFaves/>}/>
               <Route path="/userdashboard/edit-user-pass" element={<UserPassword/>}/>
+              <Route path="/userdashboard/edit-user-address" element={<UserAddress/>}/>
             </Route>
             <Route exact path="/product" element={<ProductDashboard />}>
               <Route index element={<ShopApp/>} />
               <Route path="/product/nutrition" element={<Nutrition/>}/>
               <Route path="/product/training" element={<Training/>}/>
             </Route>
-            <Route></Route>
             <Route exact path="/search" element={<SearchProductFilter/>}/>
             <Route exact path="/cart" element={<ShopApp/>}/>
             <Route exact path="/shop" element={<Shop/>}/>

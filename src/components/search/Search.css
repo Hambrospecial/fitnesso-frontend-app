@@ -10,8 +10,7 @@
 }
 
 .search{
-  /* position: relative; */
-  /* top: 80px; */
+  top: 80px;
   z-index: 3000;
   width:95%;
   padding: auto;
