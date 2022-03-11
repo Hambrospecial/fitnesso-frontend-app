@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button'
 //styles
 import { Wrapper } from './CartItem.styles'
 
-
+//cartItem functionality
 const CartItem = ({ item, addToCart, removeFromCart }) => (
  <Wrapper>
   <div>
