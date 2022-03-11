@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {loginUser} from '../services/userAuth';
-import './Login.css';
+import "./Login.css";
 import axios from "axios";
 import { Link } from 'react-router-dom'
 
@@ -10,7 +10,7 @@ const LoginUser = () => {
     const [password, setPassword] = useState("");
     const [bearer, setBearer] = useState(false);
 
-    
+
     async function sendLoginRequest(e) {
         e.preventDefault();
         const reqBody = {
@@ -32,6 +32,7 @@ const LoginUser = () => {
             localStorage.setItem("username", reqBody.username)
             const loginResponse = await axios.post(url, reqBody);
             localStorage.removeItem("token")
+
             localStorage.setItem("token", loginResponse.data.token);
             localStorage.setItem("role", loginResponse.data.role);
             console.log(localStorage.getItem(loginResponse.data.token))

@@ -19,7 +19,7 @@ const AllProduct = () => {
         const fetchData = async () => {
             const response = await fetch(productUrl + `${pageNumber}`)
             const faveData = await response.json();
-            console.log(faveData)
+            console.log("Products from the DB : " + faveData)
             setTotal(faveData.totalElements);
             setPageCount(Math.ceil(faveData.totalPages));
             setProducts(faveData.content)

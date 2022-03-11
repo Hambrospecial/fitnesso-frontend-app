@@ -25,6 +25,7 @@ import Nutrition from "./components/Main/ProductCategory/Nutrition";
 import Training from "./components/Main/ProductCategory/Training";
 import CheckingOut from "./components/CheckOut/CheckingOut";
 import EmailCheck from "./components/EmailConfirmation/EmailCheck";
+import ShopApp from './shopCart/ShopApp'
 import AdminDashboard from "./components/adminDashboard/AdminDashboard";
 import OrdersList from "./components/adminDashboard/adminOrders/OrdersList";
 import UsersList from "./components/adminDashboard/viewAllUsers/UsersList";
@@ -33,6 +34,7 @@ import ProductsList from "./components/adminDashboard/productRow/ProductsList";
 import CreateAddress from "./components/CreateAddress/CreateAddress";
 
 function App() {
+
   return (
     <div className='app'>
       <div className='section'>
@@ -56,13 +58,13 @@ function App() {
               <Route path="/userdashboard/edit-user-pass" element={<UserPassword/>}/>
             </Route>
             <Route exact path="/product" element={<ProductDashboard />}>
-              <Route index element={<AllProduct/>} />
+              <Route index element={<ShopApp/>} />
               <Route path="/product/nutrition" element={<Nutrition/>}/>
               <Route path="/product/training" element={<Training/>}/>
             </Route>
             <Route></Route>
             <Route exact path="/search" element={<SearchProductFilter/>}/>
-            <Route exact path="/cart" element={<CartPage/>}/>
+            <Route exact path="/cart" element={<ShopApp/>}/>
             <Route exact path="/shop" element={<Shop/>}/>
             <Route
               exact
