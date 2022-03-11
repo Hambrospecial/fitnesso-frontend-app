@@ -20,19 +20,46 @@ import OrderSummary from "./OrderSummary";
 import OrderConfirmation from "./orderStuff/OrderConfirmation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight, faMoneyBillWave } from "@fortawesome/free-solid-svg-icons";
+import CartProvider from "../../context/CartProvider"
+import {useContext} from "react";
+import CartContext from "../../context/cart-context";
 
 function CheckingOut() {
+  const loginState = localStorage.getItem("token");
+  const cartState = localStorage.getItem("cartList");
     const navigate = useNavigate();
+    const cartCxt = useContext(CartContext);
+
+  useEffect(() => {
+    if(loginState === null){
+      alert("Please Login");
+      navigate("/");
+    }
+    if(cartState.length === 0){
+      alert("Cart Items is empty");
+      navigate("/cart");
+    }
+  }, [])
   const [customerInfo, setCustomerInfo] = useState({ email: "" });
   const [discount, setDiscount] = useState({});
   const [shipMethod, setShipMethod] = useState({});
   const [cardInfo, setCardInfo] = useState({});
   const [shipping, setShipping] = useState({});
   const [billing, setBilling] = useState({});
-  const API_BASE_URL = "fitnesso-app-new.herokuapp.com";
+  const API_BASE_URL = "https://fitnesso-app-new.herokuapp.com";
 //   const [isFilled, setIsFilled] = useState(false);
 
+  const itemsPrice = cartCxt.items.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
+  const totalPrice = itemsPrice + 50;
   const [allData, setAllData] = useState({});
+
+  const summaryOrder = {
+    subTotal: itemsPrice,
+    flatRate: 50,
+    total: totalPrice
+  }
+
+  
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -46,11 +73,12 @@ function CheckingOut() {
     }
     allData.email= customerInfo.email;
     allData.shippingAddress = shipping;
-    allData.shippingMethod = shipMethod;
+    allData.shippingMethod = shipMethod.shipWay;
     allData.paymentRequest = cardInfo;
     allData.billingAddress = billing;
     allData.discountRequest = discount;
-    allData.shoppingCartUniqueId = "yet";
+    allData.shoppingCartUniqueId = cartCxt.items[0].uniqueCartId;
+    allData.orderSummary = summaryOrder;
     console.log(allData);
     navigate("/checkout/order-confirmation");
   };
@@ -67,6 +95,7 @@ function CheckingOut() {
         body: JSON.stringify(makeCheckOut),
       });
     const data = await res.json();
+    console.log(res);
     console.log(data);
     if(data.message === "Complete your Payment") {
       window.location.href = data.link;
@@ -125,7 +154,7 @@ function CheckingOut() {
         <div className="CheckingOut-right-order">
           <ItemsOrder />
         </div>
-        <OrderSummary />
+        <OrderSummary summaryOrder={summaryOrder} />
         <Routes>
         <Route
               path="order-confirmation"
