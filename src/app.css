@@ -3,7 +3,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-<<<<<<< HEAD
 
 .text_small {
   font-size: 0.8rem;
@@ -24,8 +23,8 @@
 .favorite-button:hover {
   font-size: 1.5rem;
   padding: 0.216rem 0.5rem;
-=======
+}
+
 body{
   background-color: #F5F5F5;
->>>>>>> develop
 }

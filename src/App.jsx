@@ -23,10 +23,10 @@ import Navbar from "./components/Main/Navbar/Navbar"
 import Footer from "./components/Main/Footer/Footer";
 import Nutrition from "./components/Main/ProductCategory/Nutrition";
 import Training from "./components/Main/ProductCategory/Training";
-<<<<<<< HEAD
+
 import ViewProduct from "./components/Main/ProductCategory/ViewProduct";
 import UserAddress from "./components/Main/Dashboard/EditForms/UserAddress";
-=======
+
 import CheckingOut from "./components/CheckOut/CheckingOut";
 import EmailCheck from "./components/EmailConfirmation/EmailCheck";
 import ShopApp from './shopCart/ShopApp'
@@ -36,7 +36,7 @@ import UsersList from "./components/adminDashboard/viewAllUsers/UsersList";
 import AddProduct from "./components/adminDashboard/addProductForm/AddProduct";
 import ProductsList from "./components/adminDashboard/productRow/ProductsList";
 import CreateAddress from "./components/CreateAddress/CreateAddress";
->>>>>>> develop
+
 
 function App() {
 
@@ -48,11 +48,10 @@ function App() {
           <Routes>
             <Route exact path="/" element={<HomePage />} />
             <Route exact path="/login" element={<Login />} />
-<<<<<<< HEAD
+
             <Route path="/product" element={<ProductDashboard/>}>
               <Route path="/product/item" element={<ViewProduct/>}/>
             </Route>
-=======
             <Route exact path="/signup" element={ <Signup/>} />
             <Route exact path="/blog" element={ <Layout />} >
                 <Route path="" element={<BlogPost/>} />
@@ -60,7 +59,7 @@ function App() {
             </Route >
             <Route exact path="/createaddress/:uname" element={ <CreateAddress/>} />
             <Route path="/product" element={<ProductDashboard/>}/>
->>>>>>> develop
+
             <Route exact path="/userdashboard" element={<UserDashboard />}>
               <Route index element={<Dashboard />} />
               <Route path="/userdashboard/edit-user-info" element={<UserInfo/>}/>

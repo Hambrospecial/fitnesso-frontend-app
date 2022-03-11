@@ -20,10 +20,10 @@ const LoginUser = () => {
         };
 
         const url = 'https://fitnesso-app-new.herokuapp.com/person/login';
-        const homeurl = "https://fitnesso-app-new.herokuapp.com/";
+        // const homeurl = "https://fitnesso-app-new.herokuapp.com/";
 
         // const url = 'http://localhost:9067/person/login';
-        // const homeurl = "http://localhost:3000/";
+        const homeurl = "http://localhost:3000/";
 
 
 
@@ -33,19 +33,16 @@ const LoginUser = () => {
             localStorage.setItem("username", reqBody.username)
             const loginResponse = await axios.post(url, reqBody);
             localStorage.removeItem("token")
-<<<<<<< HEAD
             localStorage.setItem("token", loginResponse.data.token)
             console.log((loginResponse.data));
         
             alert('Logged in successfully!');
-=======
 
             localStorage.setItem("token", loginResponse.data.token);
             localStorage.setItem("role", loginResponse.data.role);
             console.log(localStorage.getItem(loginResponse.data.token))
             console.log(localStorage.getItem(loginResponse.data.role))
-          
->>>>>>> develop
+        
             window.location.replace(homeurl)
 
         } catch (e) {
