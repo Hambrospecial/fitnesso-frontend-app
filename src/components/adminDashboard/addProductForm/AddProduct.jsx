@@ -134,8 +134,8 @@ const AddProduct = () => {
               <option className="select-box1" value="EQUIPMENT">
                 EQUIPMENT
               </option>
-              <option className="select-box1" value="WEARS">
-                WEARS
+              <option className="select-box1" value="WEARS & ACCESSORIES">
+                WEARS & ACCESSORIES
               </option>
               <option className="select-box1" value="SUPPLEMENTS">
                 SUPPLEMENTS
