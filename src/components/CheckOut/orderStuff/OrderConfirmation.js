@@ -19,8 +19,8 @@ const OrderConfirmation = ({ allData }) => {
             <div className="OrderConfirmation-header-title">
               Shipping Address
             </div>
-            <div className="OrderConfirmation-item-list">{allData.shippingAddress.fullName.toLowerCase()}</div>
-            <div className="OrderConfirmation-item-list">{allData.shippingAddress.streetDetail.toLowerCase()}</div>
+            <div className="OrderConfirmation-item-list">{allData.shippingAddress.userName}</div>
+            <div className="OrderConfirmation-item-list">{allData.shippingAddress.streetDetail}</div>
             <div className="OrderConfirmation-item-list">
             {allData.shippingAddress.city}{" "}{allData.shippingAddress.state}{" "}{allData.shippingAddress.zipCode}
             </div>
@@ -61,7 +61,7 @@ const OrderConfirmation = ({ allData }) => {
             <div className="OrderConfirmation-header-title">
               Billing Address
             </div>
-            <div className="OrderConfirmation-item-list">{allData.billingAddress.fullName.toLowerCase()}</div>
+            <div className="OrderConfirmation-item-list">{allData.billingAddress.userName.toLowerCase()}</div>
             <div className="OrderConfirmation-item-list">{allData.billingAddress.streetDetail.toLowerCase()}</div>
             <div className="OrderConfirmation-item-list">
             {allData.billingAddress.city}{" "}{allData.billingAddress.state}{" "}{allData.billingAddress.zipCode}

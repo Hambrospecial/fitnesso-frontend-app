@@ -28,7 +28,6 @@ const AddProduct = () => {
               "https://api.cloudinary.com/v1_1/fitnesso/image/upload",
               formData
           ).then((response) => {
-              // console.log("response from cloud : "+response);
               setImage(response.data.secure_url)})
       }catch(e){
           console.log(e.message);
@@ -56,7 +55,6 @@ const AddProduct = () => {
    const url = "http://localhost:9067/product/add";
   
     try {
-      
         const token = localStorage.getItem("token");
         
         const response = await axios.post(url, reqBody);
@@ -65,13 +63,14 @@ const AddProduct = () => {
         console.log(res)
         alert("Product added successfully");
         setProductName(""); setCategory(""); setDescription(""); setImage(""); setMonthlySubscription(""); setPrice(""); setProductType(""); setStock(""); setQuantity("");
-      
-       // window.location.replace(homeurl)
   
     } catch (e) {
         console.log("Ensure all fields are filled correctly");
+<<<<<<< HEAD
         alert("Ensure all fields are filled correctly");
        // console.log(e)
+=======
+>>>>>>> origin
     }
   
   }
@@ -189,14 +188,6 @@ const AddProduct = () => {
                 SERVICES
               </option>
             </select>
-            {/* <input
-              name="category"
-              className="add-product-input"
-              type="text"
-              placeholder="Product Type"
-              value={productType}
-              onChange={(event) => setProductType(event.target.value)}
-            /> */}
           </div>
           <div className="add-product-iput-container add-product-ic2">
           <input
@@ -204,8 +195,6 @@ const AddProduct = () => {
               className="add-product-input"
               type="file"
               placeholder="Image Url"
-              // value={image}
-              // onChange={(event) => setImage(event.target.value)}
               onChange={(event) => handleImage(event)}
             />
             <div className="add-product-cut cut-short"></div>
