@@ -36,6 +36,9 @@ import UsersList from "./components/adminDashboard/viewAllUsers/UsersList";
 import AddProduct from "./components/adminDashboard/addProductForm/AddProduct";
 import ProductsList from "./components/adminDashboard/productRow/ProductsList";
 import CreateAddress from "./components/CreateAddress/CreateAddress";
+import Youtube from "./components/YoutubePlayer";
+import Youtube2 from "./components/YoutubePlayer/index1";
+import Youtube3 from "./components/YoutubePlayer/index2";
 
 
 function App() {
@@ -53,6 +56,10 @@ function App() {
               <Route path="/product/item" element={<ViewProduct/>}/>
             </Route>
             <Route exact path="/signup" element={ <Signup/>} />
+
+            <Route exact path="/v1" element={ <Youtube/>} />
+            <Route exact path="/v2" element={ <Youtube2/>} />
+            <Route exact path="/v3" element={ <Youtube3/>} />
             <Route exact path="/blog" element={ <Layout />} >
                 <Route path="" element={<BlogPost/>} />
                 <Route  path=":id" element={<FullBlogPost/>} />
