@@ -35,8 +35,6 @@ const LoginUser = () => {
             localStorage.removeItem("token")
             localStorage.setItem("token", loginResponse.data.token)
             console.log((loginResponse.data));
-        
-            alert('Logged in successfully!');
 
             localStorage.setItem("token", loginResponse.data.token);
             localStorage.setItem("role", loginResponse.data.role);
