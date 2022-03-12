@@ -36,6 +36,7 @@ const AddProduct = () => {
   }
 
   async function sendAddProductRequest(e) {
+    setDisabledButton(true)
     e.preventDefault();
     const reqBody = {
       productName: productName,
@@ -51,16 +52,14 @@ const AddProduct = () => {
 
     console.log(reqBody)
 
-    const url = 'https://fitnesso-app-new.herokuapp.com/product/add';
-  //  const url = "http://localhost:9067/product/add"
+    // const url = 'https://fitnesso-app-new.herokuapp.com/product/add';
+   const url = "http://localhost:9067/product/add";
   
     try {
       
         const token = localStorage.getItem("token");
         
-        const response = await axios.post(url, reqBody, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const response = await axios.post(url, reqBody);
         const res = response.data;
 
         console.log(res)
@@ -71,6 +70,7 @@ const AddProduct = () => {
   
     } catch (e) {
         console.log("Ensure all fields are filled correctly");
+        alert("Ensure all fields are filled correctly");
        // console.log(e)
     }
   
@@ -92,6 +92,7 @@ const AddProduct = () => {
               placeholder="Product Name"
               value={productName}
               onChange={(event) => setProductName(event.target.value)}
+              required
             />
           </div>
           <div className="add-product-input-container add-product-ic2">
@@ -102,6 +103,7 @@ const AddProduct = () => {
               placeholder="Product Price"
               value={price}
               onChange={(event) => setPrice(event.target.value)}
+              required
             />
           </div>
           <div className="add-product-input-container add-product-ic2">
@@ -112,9 +114,10 @@ const AddProduct = () => {
               placeholder="Product Description "
               value={description}
               onChange={(event) => setDescription(event.target.value)}
+              required
             />
           </div>
-          <div className="add-product-input-container add-product-ic2">
+          {/* <div className="add-product-input-container add-product-ic2">
             <input
               name="category"
               className="add-product-input"
@@ -123,6 +126,36 @@ const AddProduct = () => {
               value={category}
               onChange={(event) => setCategory(event.target.value)}
             />
+          </div> */}
+          <div className="add-product-input-container add-product-ic2">
+            <select className="select-box" name="category" value={category} onChange={(event) => setCategory(event.target.value)}>
+              <option className="select-box1" value="select Product Type" onChange={(event) => setCategory(event.target.value)}>
+                Select Product Category
+              </option>
+              <option className="select-box1" value="EQUIPMENT">
+                EQUIPMENT
+              </option>
+              <option className="select-box1" value="WEARS">
+                WEARS
+              </option>
+              <option className="select-box1" value="SUPPLEMENTS">
+                SUPPLEMENTS
+              </option>
+              <option className="select-box1" value="WORKOUT">
+                WORKOUT
+              </option>
+              <option className="select-box1" value="MEAL PLAN">
+                MEAL PLAN
+              </option>
+            </select>
+            {/* <input
+              name="category"
+              className="add-product-input"
+              type="text"
+              placeholder="Product Type"
+              value={productType}
+              onChange={(event) => setProductType(event.target.value)}
+            /> */}
           </div>
           <div className="add-product-input-container add-product-ic2">
             <input
@@ -189,7 +222,7 @@ const AddProduct = () => {
             <div className="add-product-cut cut-short"></div>
           </div>
 
-          <button type="submit" className="add-product-submit" disbled={disabledButton} onClick={sendAddProductRequest} >
+          <button type="submit" className="add-product-submit" onClick={sendAddProductRequest} >
             SUBMIT
           </button>
         </form>
