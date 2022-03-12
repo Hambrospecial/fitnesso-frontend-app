@@ -2,15 +2,7 @@ import React, {useState} from "react";
 import "./ShippingAddress.css";
 
 const ShippingAddress = ({addressName, setShipping, shipping, onChange }) => {
-    // const [shippingIn, setShippingIn] = useState({
-    //     fullName: "",
-    //     streetAddress: "",
-    //     city: "",
-    //     state: "",
-    //     zipCode: "",
-    //     country: "",
-    //   });
-
+    
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setShipping({
