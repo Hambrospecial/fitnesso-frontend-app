@@ -7,10 +7,16 @@ import { Wrapper } from './Cart.styles'
 //Types
 import { CartItemType } from '../ShopApp'
 
+import {useContext} from "react";
+import CartContext from "../../context/cart-context";
+
 // const CartInfoContext = createContext()
 
 
 const Cart = ({ cartItems, addToCart, removeFromCart }) => {
+
+ const cartCxt = useContext(CartContext);
+
   const calculateTotal = (items) => items.reduce((ack, item) => ack + item.amount * item.price, 0)
   const navigate = useNavigate();
 
@@ -25,19 +31,30 @@ const Cart = ({ cartItems, addToCart, removeFromCart }) => {
   })
 
   const addToCartFunction = async () => {
-    console.log(myMap, "map");
+    console.log(obj, "map object");
     console.log(localStorage.getItem("token"), "token here");
       const res = await fetch("https://fitnesso-app-new.herokuapp.com/carts/add", {
         method: "POST",
         headers: {"Content-type": "application/json",
       "Authorization" : "Bearer " + localStorage.getItem("token")},
-      body: JSON.stringify(myMap)
+      body: JSON.stringify(obj)
       });
 
       const data = await res.json();
+      console.log("Response:: ",res);
+
       console.log(data);
-      localStorage.setItem("cartList", data.cartList);
-      navigate("/checkout");
+
+        cartCxt.items = data.cartData;
+
+      localStorage.setItem("cartList", data);
+      const list = localStorage.getItem("cartList");
+      if(list.length === 0){
+        alert("Cart list returned Empty");
+      }
+      else{
+        navigate("/checkout");
+      }
   }
   
  return (
