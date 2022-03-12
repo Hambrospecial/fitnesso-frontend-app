@@ -12,7 +12,7 @@ function SearchProductFilter() {
       setLoading(true);
       const response = await axios.get("https://fitnesso-app-new.herokuapp.com/product/viewproducts");
       setPosts(response.data);
-      console.log(response.data);
+      // console.log(response.data);
       setLoading(false);
     };
     
@@ -43,15 +43,17 @@ function SearchProductFilter() {
             })
             .map((item) => (
               <div key={item.id} className="search__box">
+              <div className="search_products_wrapper">
                 <a className="search__container" href={`/product/viewproduct/${item.id}`}>
                   <span className="search__image">
-                     {/* <img src={"https://images.unsplash.com/photo-1553979459-d2229ba7433b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=768&q=80"} alt="" />  */}
-                    {item.image}
+                     <img src={item.image}/>
+
                   </span>
                   <span className="search__name">{item.productName}</span>
                   <span className="search__description">{item.description}</span>
                   <span className="search__price">₦ {item.price}</span>
                 </a>
+              </div>
               </div>
             )) 
             }

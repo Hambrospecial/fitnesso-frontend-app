@@ -31,7 +31,7 @@ const PaymentInfo = ({setCardInfo, cardInfo}) => {
         <div className="PaymentInfo-row PaymentInfo-clean">
           <div className="PaymentInfo-card-adjust">
             <Cards
-              cvc={cardInfo.cvcNumber || ''}
+              cvc={cardInfo.cvvNumber || ''}
               expiry={cardInfo.expiringDate || ''}
               focused={cardInfo.focus || ''}
               name={cardInfo.name || ''}
@@ -65,8 +65,8 @@ const PaymentInfo = ({setCardInfo, cardInfo}) => {
               <label>Card CVC* </label>
               <input
                 type="password"
-                name="cvcNumber"
-                value={cardInfo.cvcNumber || ''}
+                name="cvvNumber"
+                value={cardInfo.cvvNumber || ''}
                 onChange={handleInputChange}
                 onFocus={(e) => setFocus(e.target.name)}
               />

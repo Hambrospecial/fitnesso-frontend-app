@@ -17,7 +17,10 @@ const Dashboard = () => {
   }, []);
   const getUserInfo = async (e) => {
     setSuccessful(true);
-    const url = "https://fitnesso-app-new.herokuapp.com/person/profile";
+
+    const url = "'https://fitnesso-app-new.herokuapp.com/person/profile";
+
+
     try {
       const personInfoResponse = await axios.get(url, {
         headers: { Authorization: `Bearer ${token}` },
@@ -27,28 +30,22 @@ const Dashboard = () => {
       });
       setPeopleData(personInfoResponse.data);
       setSuccessful(false);
-      // setPeopleData(personInfoResponse.data)
-      // console.table(personInfoResponse);
       console.log(personInfoResponse.data);
       setAddress(personInfoResponse.data.address);
       localStorage.setItem("peopleData", JSON.stringify(personInfoResponse.data));
 
-      // localStorage.setItem("state", personInfoResponse.data.address.state);
-      // DONT FORGET TO delete "state" from localStorage
-      // const details = personInfoResponse.data
     } catch (e) {
       console.log("User does not exist!");
     }
   };
 
-  // const personInfo = localStorage.getItem("person_info");
   return (
     <div id={peopledata.id}>
     <div className="users__dashboard__main__title">
       <img src={`${peopledata.image}`} alt={`${peopledata.image}`} />
       <div className="users__dashboard__main__greeting">
         <h1>{peopledata.username}</h1>
-        <p>Welcome to your account dashboard {`${peopledata.firstName} ${peopledata.lastName}`}</p>
+        <p>Welcome {`${peopledata.firstName} ${peopledata.lastName}`}</p>
       </div>
     </div>
     <div className="users__dashboard__charts">
@@ -87,7 +84,7 @@ const Dashboard = () => {
             <p>{address.streetDetail}</p><br></br>
             <p>{address.city}</p>
           </div>
-          <a href="#">
+          <a href="/userdashboard/edit-user-address">
             <i className="fa fa-pencil" aria-hidden="true"></i>
           </a>
         </div>
