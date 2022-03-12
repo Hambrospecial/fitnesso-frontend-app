@@ -29,7 +29,7 @@ const AdminDashboard = () => {
             <li><i className="fas fa-users"></i><a href="/admindashboard/view-users">Users</a></li>
             <li><i className="fas fa-edit"></i><a href="/admindashboard/add-products">Add Product </a></li>
             <li><i className="fas fa-edit"></i><a href="/admindashboard/add-services">Add Post </a></li>
-            <li><i className="fa fa-user"></i><a href="/">My Details</a></li>
+            <li><i className="fa fa-user"></i><a href="/userdashboard">My Details</a></li>
             <li><i className="fas fa-dumbbell"></i><a href="/admindashboard/view-products">Product</a></li>
             <li><i className="fas fa-power-off"></i><a href="#"
             onClick={() => {

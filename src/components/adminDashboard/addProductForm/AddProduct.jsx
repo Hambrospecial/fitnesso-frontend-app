@@ -66,11 +66,8 @@ const AddProduct = () => {
   
     } catch (e) {
         console.log("Ensure all fields are filled correctly");
-<<<<<<< HEAD
         alert("Ensure all fields are filled correctly");
        // console.log(e)
-=======
->>>>>>> origin
     }
   
   }
@@ -106,7 +103,7 @@ const AddProduct = () => {
             />
           </div>
           <div className="add-product-input-container add-product-ic2">
-            <input
+            <textarea
               name="description"
               className="add-product-input"
               type="text"

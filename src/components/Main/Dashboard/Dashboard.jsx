@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import "./UserDashboard.css";
 import axios from "axios";
 import { useState } from "react";
@@ -11,6 +11,7 @@ const Dashboard = () => {
   const [peopledata, setPeopleData] = useState({});
   const [successful, setSuccessful] = useState(false);
   const [address, setAddress] = useState({});
+  const navigate = useNavigate();
 
   useEffect((e) => {
     getUserInfo(e);
@@ -35,6 +36,8 @@ const Dashboard = () => {
       localStorage.setItem("peopleData", JSON.stringify(personInfoResponse.data));
 
     } catch (e) {
+      // localStorage.clear();
+      // navigate("/");
       console.log("User does not exist!");
     }
   };
