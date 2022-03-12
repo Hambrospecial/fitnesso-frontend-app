@@ -102,10 +102,10 @@ const AddProduct = () => {
               required
             />
           </div>
-          <div className="add-product-input-container add-product-ic2">
+          <div className="add-product-textarea-container add-product-ic2">
             <textarea
               name="description"
-              className="add-product-input"
+              className="add-product-textarea"
               type="text"
               placeholder="Product Description "
               value={description}
