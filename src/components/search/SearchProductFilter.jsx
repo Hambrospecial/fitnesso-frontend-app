@@ -12,7 +12,7 @@ function SearchProductFilter() {
       setLoading(true);
       const response = await axios.get("https://fitnesso-app-new.herokuapp.com/product/viewproducts");
       setPosts(response.data);
-      // console.log(response.data);
+      console.log(response.data);
       setLoading(false);
     };
     
@@ -26,7 +26,7 @@ function SearchProductFilter() {
         onChange={(e) => setSearchTitle(e.target.value)}
       />
       {loading ? (
-        <h4>loading...</h4>
+        <h4> </h4>
       ) : (
         
            <div className="search__row">
@@ -44,13 +44,13 @@ function SearchProductFilter() {
             .map((item) => (
               <div key={item.id} className="search__box">
               <div className="search_products_wrapper">
-                <a className="search__container" href={`/product/viewproduct/${item.id}`}>
+                <a className="search__container" href={`/product/item`}>
                   <span className="search__image">
                      <img src={item.image}/>
 
                   </span>
                   <span className="search__name">{item.productName}</span>
-                  <span className="search__description">{item.description}</span>
+                  {/* <span className="search__description">{item.description}</span> */}
                   <span className="search__price">₦ {item.price}</span>
                 </a>
               </div>

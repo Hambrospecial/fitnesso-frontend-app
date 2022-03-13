@@ -19,7 +19,8 @@ const Dashboard = () => {
   const getUserInfo = async (e) => {
     setSuccessful(true);
 
-    const url = "'https://fitnesso-app-new.herokuapp.com/person/profile";
+    // const url = "'https://fitnesso-app-new.herokuapp.com/person/profile";
+    const url = `http://localhost:9067/person/profile`;
 
 
     try {
@@ -36,8 +37,8 @@ const Dashboard = () => {
       localStorage.setItem("peopleData", JSON.stringify(personInfoResponse.data));
 
     } catch (e) {
-      // localStorage.clear();
-      // navigate("/");
+      localStorage.clear();
+      navigate("/");
       console.log("User does not exist!");
     }
   };
@@ -56,7 +57,7 @@ const Dashboard = () => {
         <div className="users__dashboard__charts__left__title">
           <div>
             <h1>Personal Information</h1>
-            <p>{peopledata.userName}</p>
+            <p>{peopledata.gender}</p>
           </div>
           <i className="fa fa-user" aria-hidden="true"></i>
         </div>
