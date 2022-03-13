@@ -43,6 +43,7 @@ function CheckingOut() {
   const [cardInfo, setCardInfo] = useState({});
   const [shipping, setShipping] = useState({});
   const [billing, setBilling] = useState({});
+  const [issuer, setIssuer] = useState("");
   const API_BASE_URL = "https://fitnesso-app-new.herokuapp.com";
 
   const itemsPrice = cartCxt.items.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
@@ -112,7 +113,7 @@ function CheckingOut() {
           <Routes>
             <Route
               path="order-confirmation"
-              element={customerInfo.email === '' ? <Navigate to="/checkout" /> : <OrderConfirmation allData={allData} />}
+              element={customerInfo.email === '' ? <Navigate to="/checkout" /> : <OrderConfirmation allData={allData} issuer={issuer} />}
             />
             <Route
               path="/"
@@ -128,7 +129,7 @@ function CheckingOut() {
                     addressName={"Shipping Address"}
                   />
                   <ShippingMethod setShipMethod={setShipMethod} />
-                  <PaymentInfo setCardInfo={setCardInfo} cardInfo={cardInfo} />
+                  <PaymentInfo setCardInfo={setCardInfo} cardInfo={cardInfo} setIssuer={setIssuer} issuer={issuer} />
                   <BillingAddress
                     shipping={billing}
                     setShipping={setBilling}
