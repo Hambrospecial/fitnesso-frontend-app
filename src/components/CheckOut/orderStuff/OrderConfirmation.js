@@ -37,7 +37,7 @@ const OrderConfirmation = ({ allData }) => {
         </div>
         <div className="OrderConfirmation-row OrderConfirmation-design OrderConfirmation-body">
           <div>
-            <div className="OrderConfirmation-item-list">{allData.shippingMethod.shipWay}</div>
+            <div className="OrderConfirmation-item-list">{allData.shippingMethod}</div>
             <div className="OrderConfirmation-item-list">
               Standard flat rate for all shipment
             </div>

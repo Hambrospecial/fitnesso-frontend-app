@@ -29,10 +29,10 @@ function CheckingOut() {
 
   useEffect(() => {
     if(loginState === null){
-      alert("Please Login");
       navigate("/");
+      alert("Please Login");
     }
-    if(cartCxt.items.length === 0){
+    else if(cartCxt.items.length === 0){
       alert("Cart Items is empty");
       navigate("/cart");
     }
