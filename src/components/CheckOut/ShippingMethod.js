@@ -32,7 +32,7 @@ const ShippingMethod = ({setShipMethod}) => {
             <div className="ShippingMethod-method-title">Expedited Shipping </div>
             <div className="ShippingMethod-method-title-info">Expedited shipping to get the shipment in a day or two</div>
           </div>
-          <div className="ShippingMethod-method-amount">$ 29.90 USD</div>
+          <div className="ShippingMethod-method-amount">$ 90 USD</div>
         </div>
         <div className="ShippingMethod-method-container ShippingMethod-title-content ShippingMethod-row">
           <div>
@@ -42,7 +42,7 @@ const ShippingMethod = ({setShipMethod}) => {
             <div className="ShippingMethod-method-title">Overnight Shipping</div>
             <div className="ShippingMethod-method-title-info">An expensive option to get the shipment on the next business day</div>
           </div>
-          <div className="ShippingMethod-method-amount">$ 129.90 USD</div>
+          <div className="ShippingMethod-method-amount">$ 120 USD</div>
         </div>
       </div>
     </div>

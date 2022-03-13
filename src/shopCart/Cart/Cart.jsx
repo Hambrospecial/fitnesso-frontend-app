@@ -44,12 +44,8 @@ const Cart = ({ cartItems, addToCart, removeFromCart }) => {
       console.log("Response:: ",res);
 
       console.log(data);
-
-        cartCxt.items = data.cartData;
-
-      localStorage.setItem("cartList", data);
-      const list = localStorage.getItem("cartList");
-      if(list.length === 0){
+      cartCxt.items = data.cartData;
+      if(cartCxt.items.length === 0){
         alert("Cart list returned Empty");
       }
       else{

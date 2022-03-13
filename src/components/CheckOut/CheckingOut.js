@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./CheckingOut.css";
 import NavBar from "../Main/Navbar/Navbar";
 import Footer from "../Main/Footer/Footer";
@@ -20,22 +20,19 @@ import OrderSummary from "./OrderSummary";
 import OrderConfirmation from "./orderStuff/OrderConfirmation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight, faMoneyBillWave } from "@fortawesome/free-solid-svg-icons";
-import CartProvider from "../../context/CartProvider"
-import {useContext} from "react";
 import CartContext from "../../context/cart-context";
 
 function CheckingOut() {
   const loginState = localStorage.getItem("token");
-  const cartState = localStorage.getItem("cartList");
     const navigate = useNavigate();
     const cartCxt = useContext(CartContext);
 
   useEffect(() => {
     if(loginState === null){
-      alert("Please Login");
       navigate("/");
+      alert("Please Login");
     }
-    if(cartState.length === 0){
+    else if(cartCxt.items.length === 0){
       alert("Cart Items is empty");
       navigate("/cart");
     }
@@ -46,8 +43,8 @@ function CheckingOut() {
   const [cardInfo, setCardInfo] = useState({});
   const [shipping, setShipping] = useState({});
   const [billing, setBilling] = useState({});
+  const [issuer, setIssuer] = useState("");
   const API_BASE_URL = "https://fitnesso-app-new.herokuapp.com";
-//   const [isFilled, setIsFilled] = useState(false);
 
   const itemsPrice = cartCxt.items.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
   const totalPrice = itemsPrice + 50;
@@ -58,8 +55,6 @@ function CheckingOut() {
     flatRate: 50,
     total: totalPrice
   }
-
-  
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -99,7 +94,6 @@ function CheckingOut() {
     console.log(data);
     if(data.message === "Complete your Payment") {
       window.location.href = data.link;
-        // navigate("/home")
     }
     else if(data.status === 403){
         navigate("/login")
@@ -119,7 +113,7 @@ function CheckingOut() {
           <Routes>
             <Route
               path="order-confirmation"
-              element={customerInfo.email === '' ? <Navigate to="/checkout" /> : <OrderConfirmation allData={allData} />}
+              element={customerInfo.email === '' ? <Navigate to="/checkout" /> : <OrderConfirmation allData={allData} issuer={issuer} />}
             />
             <Route
               path="/"
@@ -135,7 +129,7 @@ function CheckingOut() {
                     addressName={"Shipping Address"}
                   />
                   <ShippingMethod setShipMethod={setShipMethod} />
-                  <PaymentInfo setCardInfo={setCardInfo} cardInfo={cardInfo} />
+                  <PaymentInfo setCardInfo={setCardInfo} cardInfo={cardInfo} setIssuer={setIssuer} issuer={issuer} />
                   <BillingAddress
                     shipping={billing}
                     setShipping={setBilling}
